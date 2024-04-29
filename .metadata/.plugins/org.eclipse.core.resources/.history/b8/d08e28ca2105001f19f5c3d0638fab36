@@ -1,0 +1,62 @@
+package com.kh.thenolja.notice.model.service;
+
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kh.thenolja.notice.model.dao.NoticeRepository;
+import com.kh.thenolja.notice.model.vo.Notice;
+
+@Service
+public class NoticeServiceImpl implements NoticeService {
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	@Autowired
+	private NoticeRepository noticeRepository;
+	
+	@Override
+	public int selectListCount() {
+		int listCount = 0;
+		listCount = noticeRepository.selectListCount(sqlSession);
+		System.out.println("[NoticeServiceImpl listCount] " + listCount);
+		return listCount;
+	}
+	
+	@Override
+	public List<Notice> selectNoticelist(){
+		System.out.println("[NoticeServiceImpl selectNoticelist]");
+		
+		// 페이징 처리
+//		int offset =(pi.getCurrentPage() - 1) * pi.getBoardLimit();
+//		RowBounds rowBounds = new RowBounds(offset,pi.getBoardLimit());
+		
+		List<Notice> list = noticeRepository.selectNoticelist(sqlSession);
+		System.out.println("[NoticeServiceImpl list결과] ");
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public int regNotice(Notice nt) {
+		
+		int regCnt = 0;
+		regCnt = noticeRepository.regNoticeInfo(sqlSession, nt);
+		System.out.println(regCnt);
+		return regCnt;
+	}
+	
+
+	
+	
+	
+	
+}

@@ -1,0 +1,13 @@
+package com.kh.thenolja.notice.model.service;
+
+import java.util.List;
+
+import com.kh.thenolja.common.model.vo.PageInfo;
+import com.kh.thenolja.notice.model.vo.Notice;
+
+
+public interface NoticeService {
+
+	List<Notice> selectNoticelist(PageInfo pi); // 공지사항 조회
+	int selectListCount();			 // 페이징 처리
+}

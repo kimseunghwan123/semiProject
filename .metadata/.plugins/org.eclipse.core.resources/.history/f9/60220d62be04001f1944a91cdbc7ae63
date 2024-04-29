@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeMapper">
+
+<resultMap id="noticeResultSet" type="notice">
+
+	<result column="NOTICE_NO"     		property="noticeNo"/>
+	<result column="Notice_TITLE"  		property="noticeTitle"/>
+	<result column="NOTICE_CONTENT" 	property="noticeContent"/>
+	<result column="CREATE_DATE"  		property="createDate"/>
+	<result column="STATUS"  			property="status"/>
+	<result column="WRITER_NO"  		property="writerNo"/>
+	<result column="WRITER"  			property="writer"/>
+	<result column="VIEW_COUNT"     	property="viewCount"/>
+	
+</resultMap>
+
+<select id="selectNoticelist" resultMap="noticeResultSet">
+	 SELECT *
+			FROM
+				(SELECT 
+          			  A.*, ROWNUM RNUM
+        FROM( SELECT
+                       	NOTICE_NO,     					/* 공지사항 번호 */
+                           NOTICE_TITLE,  					 /* 공지사항 제목 */
+                           NOTICE_CONTENT, 	 			/* 공지사항 내용 */
+                   (SELECT NICKNAME FROM TB_MEMBER
+                                WHERE WRITER_NO = MEM_NO
+                                AND ROWNUM = 1) AS WRITER,   		/* 작성자명 */		        
+	        TO_CHAR(CREATE_DATE, 'YYYY.MM.DD') as CREATE_DATE, 	   /* 공지사항 등록일 */
+	        STATUS,   		     						 /* 공지사항 상태(=노출여부) */
+	        NOTICE_VIEW_COUNT			 		/* 공지사항 조회수 */
+    
+    FROM 	TB_NOTICE
+	
+	ORDER 
+		BY 
+			CREATE_DATE DESC, 
+			NOTICE_NO DESC) A) 
+
+</select>
+
+
+</mapper>

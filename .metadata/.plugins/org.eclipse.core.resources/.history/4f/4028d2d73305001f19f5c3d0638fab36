@@ -1,0 +1,5 @@
+package com.kh.thenolja.common.model.vo;
+
+public class PageInfo {
+
+}

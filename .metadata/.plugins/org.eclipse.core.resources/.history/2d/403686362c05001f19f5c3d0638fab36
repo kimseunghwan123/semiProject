@@ -1,0 +1,22 @@
+package com.kh.thenolja.notice.model.vo;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+public class Notice {
+	private int noticeNo;
+	private String noticeTitle;
+	private String noticeContent;
+	private String createDate;
+	private String status;
+	private int writerNo;
+	private String writer; 	   // 상세화면 조회 시 작성자명
+	private int viewCount;	   // 조회 수
+	private String flag;	   // 상세페이지, 수정페이지 구분 값
+}
