@@ -158,12 +158,18 @@ input[type="text"], input[type="password"] {
     background: url(../images/btn/btn_inp_reset.png) 0 0 no-repeat;
 }
 
+.align_center{
+	text-align:center;
+	margin: 50px;
+	padding:50px;
+}
+.board-basic{
+	font-weight:bold;
+}
+
 /* 첨부파일 영역 스타일적용 END */
 
 </style>
-
-	<!-- include header.jsp   해당페이지로 인클루드  header페이지 실행 -->
-	<jsp:include page="../common/header.jsp"/>
 
 <!-- SmartEditor를 사용하기 위해서 다음 js파일을 추가(경로확인) -->
 <%-- <script type="text/javascript" src="<%=contextPath%>/SE2/js/HuskyEZCreator.js" charset="utf-8"></script> --%>
@@ -220,19 +226,22 @@ function regNotice(){
 		if(confirm("게시글을 등록하시겠습니까?")){	
 		// 게시글 저장 submission 정보 세팅
 		// data : getParameter 지정 값   : 값
+		var formDoc = $("#frm").serialize();
+		
 		$.ajax({
 			type: "POST",
-			url : "notice.regForm",
-			data : {title : inptTitle, content : inptContent, status : chkStatus},
+			url : "notice.regInfo",
+			data : formDoc,
 			success:function(res){
-
-				if(res == "SUCCESS"){
+				alert("게시글이 정상적으로 등록되었습니다.");
+				location.href= "notice.list";
+				/*if(res == "success"){
 					alert("게시글이 정상적으로 등록되었습니다.");
-					<%-- location.href= "<%= contextPath %>/noticeList?currentPage=1" --%>
+					location.href="notice.list";
 				}else{
 					alert("게시글 등록 중 오류가 발생하였습니다.");
 					return;
-				}
+				} */
 			},
 			error:function(e){
 				alert("게시글 등록 중 오류가 발생하였습니다.");
@@ -316,18 +325,18 @@ function countText(){
 <body>
 	<div class="container">
 	
-	<!-- logo START -->
-	<div id="logo" class="logo_main" align="center">
-		<!-- <img id="main_logo" class="left_logo" src = "../../../../resources/img/TheNoleJa_Logo.png" alt="NoleJa_Logo"/> -->
+	<jsp:include page="../common/header.jsp"/>
+	<br>
+	<div class="align_center">
+		<h2 class="board-basic">공지사항</h2>
 	</div>
-	<!-- logo END -->	
 	
 	<!-- FORM 영역 START -->
-	<form id="frm" action="notice.regForm" method="post">
+	<form id="frm" action="notice.regInfo" >
 		<table class="table-light table-striped text-center" width="100%">
 			<tr>
 				<th class="th_left"><span>제목</span></th>
-				<td><input type="text" id="title" name="title" maxlength="26" style="width:650px;"/></td>
+				<td><input type="text" id="title" name="noticeTitle" maxlength="26" style="width:650px;"/></td>
 			</tr>
 			
        <tr>
@@ -353,7 +362,7 @@ function countText(){
        <tr>
             <th><span>내용</span>	</th>
             <td>
-                <textarea rows="10" cols="30" id="txtArea_content" name="content" onkeyup="countText();"></textarea>
+                <textarea rows="10" cols="30" id="txtArea_content" name="noticeContent" onkeyup="countText();"></textarea>
             </td>
         </tr>
         
