@@ -235,6 +235,13 @@ function regNotice(){
 			success:function(res){
 				alert("게시글이 정상적으로 등록되었습니다.");
 				location.href= "notice.list";
+				/*if(res == "success"){
+					alert("게시글이 정상적으로 등록되었습니다.");
+					location.href="notice.list";
+				}else{
+					alert("게시글 등록 중 오류가 발생하였습니다.");
+					return;
+				} */
 			},
 			error:function(e){
 				alert("게시글 등록 중 오류가 발생하였습니다.");
