@@ -20,5 +20,60 @@
 </head>
 <body>
 
+<jsp:include page="../common/header.jsp"/>
+<br>
+	<div class="align_center">
+		<div id="contentHeader"><h2 align="left">이벤트</h2></div>
+	</div>
+ 	<br>
+ 	 <!-- 등록 버튼Start -->
+	<a id="btn_reg" class="btn btn-primary" href="event.regForm" role="button">등록하기</a>
+     <!-- 등록 버튼 영역 END -->
+	<br><br>
+	<table id="eventlist"class="table table-hover">
+		<thead>
+			<tr>
+				<th>no.</th>
+				<th>내용</th>
+				<th>이벤트 시작일</th>
+				<th>이벤트 종료일</th>
+				<th>이벤트진행여부</th>
+				<th>이벤트 이미지</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+             <c:forEach items="${ eventList }" var="event">
+                        <tr id="tr_event" class="list">
+                            <td>${ event.eventNo }</td>
+                            <td>${ event.eventContent }</td>
+                            <td>${ event.eventStrtDt }</td>
+                            <td>${ event.eventEndDt }</td>
+                            <td>${ event.eventYn }</td>
+                            <td>${ event.eventImg }</td>
+                            <td>${ event.writer}</td>
+                        </tr>
+           </c:forEach>
+		</tbody>
+	</table>
+	
+<script>
+	// loginId null 체크
+	// 수정화면 진입 (관리자전용URL)
+	/*$('tbody > tr.list').click(function(){
+        const noticeNo = $(this).children().eq(0).text();
+        location.href= 'selectUpdate.notice?noticeNo=' + noticeNo + '&flag=' + 'Y';
+      })*/
+
+       	// 상세화면 진입 (회원전용URL)
+        $('tbody > tr.list').click(function(){
+           const eventNo = $(this).children().eq(0).text();
+           location.href= 'selectUpdate.event?eventNo=' + eventNo + '&flag=' + 'N';
+        });
+	
+	</script>	 
+
+
+
 </body>
 </html>

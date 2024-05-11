@@ -123,8 +123,8 @@
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="notice.list">공지사항</a></li>
-                <li><a href="list.event">이벤트</a></li>
-                <li><a href="list.coupon">쿠폰</a></li>
+                <li><a href="event.list">이벤트</a></li>
+                <li><a href="coupon.list">쿠폰</a></li>
             </ul>
         </div>
     </div>

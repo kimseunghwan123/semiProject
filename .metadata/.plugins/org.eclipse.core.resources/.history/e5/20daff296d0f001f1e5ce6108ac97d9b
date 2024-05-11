@@ -1,0 +1,36 @@
+package com.kh.thenolja.event.model.service;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kh.thenolja.event.model.dao.EventRepository;
+import com.kh.thenolja.event.model.vo.Event;
+import com.kh.thenolja.notice.model.vo.Notice;
+
+@Service
+public class EventServiceImpl implements EventService {
+
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	@Autowired
+	public EventRepository eventRepository;
+	
+	
+	@Override
+	public List<Event>selectEventlist(){
+		System.out.println("[EventServiceImpl selectEventlist]");
+	
+		List<Event> list = eventRepository.selectEventlist(sqlSession);
+		System.out.println("[EventServiceImpl list결과] ");
+	
+	return ;
+	
+	}
+	
+	
+	
+}

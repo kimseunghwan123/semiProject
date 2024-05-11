@@ -10,6 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Notice {
+	
 	private int noticeNo;
 	private String noticeTitle;
 	private String noticeContent;

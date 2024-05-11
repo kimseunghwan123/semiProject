@@ -1,0 +1,6 @@
+package com.kh.thenolja.event.controller;
+
+@Controller
+public class EventController {
+
+}
