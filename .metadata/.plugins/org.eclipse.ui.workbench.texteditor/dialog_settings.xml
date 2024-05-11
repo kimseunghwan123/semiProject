@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="logo"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="logo"/>
+			<item value="notice.list"/>
+			<item value="notice"/>
 			<item value="getCurrentPage"/>
 			<item value="currentPage"/>
 			<item value="getCurrentPage\"/>
@@ -20,9 +23,6 @@
 			<item value="&lt;jsp:include page=&quot;../common/header.jsp&quot;/&gt;"/>
 			<item value="align_center"/>
 			<item value="noticeOne"/>
-			<item value="selectNoticeOne"/>
-			<item value="[NoticeController noticeUpdForm] "/>
-			<item value="Noticecontroller noticeUpdInfo"/>
 		</list>
 		<list key="replacehistory">
 		</list>

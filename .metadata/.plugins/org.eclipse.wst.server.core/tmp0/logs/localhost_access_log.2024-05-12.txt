@@ -10,3 +10,4 @@
 0:0:0:0:0:0:0:1 - - [12/May/2024:00:07:23 +0900] "GET /thenolja/selectUpdate.event?eventNo=1&flag=N HTTP/1.1" 200 7086
 0:0:0:0:0:0:0:1 - - [12/May/2024:00:07:42 +0900] "GET /thenolja/selectUpdate.event?eventNo=1&flag=N HTTP/1.1" 200 7067
 0:0:0:0:0:0:0:1 - - [12/May/2024:00:07:43 +0900] "GET /thenolja/resources/images/logo.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [12/May/2024:00:08:50 +0900] "GET /thenolja/selectUpdate.event?eventNo=3&flag=N HTTP/1.1" 200 7067
