@@ -7,18 +7,21 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.thenolja.event.model.vo.Event;
 
-
 @Repository
 public class EventRepository {
 
 	
-	// 공지사항 목록 조회
+	// 이벤트 목록 조회
 	public List<Event>selectEventlist(SqlSessionTemplate sqlSession){
 //		System.out.println("[NoticeRepository rowBounds] " + rowBounds.getOffset());
 //		System.out.println("[NoticeRepository rowBounds] " + rowBounds.getLimit());
 		return sqlSession.selectList("eventMapper.selectEventlist");
 	}
-	
+	// 이벤트 상세조회
+		public Event selectEventOne(SqlSessionTemplate sqlSession, int etsNo) {
+			System.out.println("[EventRepository selectEventOne] " + etsNo);
+			return sqlSession.selectOne("eventMapper.selectEventOne", etsNo);
+		}
 	
 	
 	

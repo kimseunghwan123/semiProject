@@ -38,7 +38,26 @@
 		ORDER BY CREATE_DATE DESC ) A)
 	    
 	</select>
+<!-- 이벤트 상세조회 -->
+<select id="selectEvnetOne" parameterType="_int" resultMap="eventResultSet">
+   SELECT
+                EVENT_NO,   	    /* 이벤트 번호 */
+                EVENT_TITLE,        /* 이벤트 제목 */
+                EVENT_CONTENT,      /* 이벤트 내용 */
+                EVENT_YN,			/* 이벤트 진행여부 */
+                EVENT_IMG,	
+                TO_CHAR(EVENT_STRT_DT,'YYYY-MM-DD') AS EVENT_STRT_DT,      /* 이벤트 시작일 */
+                TO_CHAR(EVENT_END_DT ,'YYYY-MM-DD') AS EVENT_END_DT,       /* 이벤트 종료일 */
+                (SELECT NICKNAME FROM TB_MEMBER
+                                 WHERE WRITER_NO = MEM_NO
+                                 AND ROWNUM = 1) AS WRITER,    			  /* 작성자명 */
+                TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE         /* 이벤트 등록일 */                                 
+          FROM TB_EVENT
+               
+           WHERE  1=1 
+           AND EVENT_NO = ?        
 
+</select>
 
 	
 </mapper>

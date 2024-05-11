@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventMapper">
+
+<resultMap id="eventResultSet" type="event">
+<result column="EVENT_NO" property="eventNo"/>
+<result column="EVENT_TITLE" property="eventTitle"/>
+<result column="EVENT_CONTENT" property="eventContent"/>
+<result column="EVENT_STRT_DT" property="eventStrtDt"/>
+<result column="EVENT_END_DT" property="eventEndDt"/>
+<result column="EVENT_YN" property="eventYn"/>
+<result column="EVENT_IMG" property="eventImg"/>
+<result column="WRITER_NO" property="writerNo"/>
+<result column="CREATE_DATE" property="createDate"/>
+</resultMap>
+
+<!-- 이벤트 목록 조회 -->
+	<select id="selectEventlist" resultMap="eventResultSet">
+	  SELECT *
+	  	FROM
+	     (SELECT 
+	            A.*, ROWNUM RNUM
+	        FROM( SELECT
+		        EVENT_NO,           /* 이벤트 관리번호 */
+		        EVENT_CONTENT,      /* 이벤트 내용 */
+		        TO_CHAR(EVENT_STRT_DT, 'YYYY.MM.DD') AS EVENT_STRT_DT,     /* 이벤트 시작일 */
+		        TO_CHAR(EVENT_END_DT, 'YYYY.MM.DD')  AS EVENT_END_DT,      /* 이벤트 종료일 */
+		        EVENT_YN,           /* 이벤트 진행여부 */
+		        EVENT_IMG,          /* 이벤트 이미지 */
+ 				(SELECT NICKNAME FROM TB_MEMBER
+                                 WHERE WRITER_NO = MEM_NO
+                                 AND ROWNUM = 1) AS WRITER   	/* 작성자명 */
+		        
+		FROM TB_EVENT
+		WHERE 1=1
+		ORDER BY CREATE_DATE DESC ) A)
+	    
+	</select>
+<!-- 공지사항 상세조회 -->
+<select id="selectNoticeOne" parameterType="_int" resultMap="noticeResultSet">
+   SELECT
+              EVENT_NO,   	 	 /* 이벤트 번호 */
+              EVENT_TITLE,      /* 이벤트 제목 */
+              EVENT_CONTENT,    /* 이벤트 내용 */
+              STATUS,			 /* 이벤트 게시여부 */	
+              TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE,       /* 이벤트 등록일 */
+              (SELECT NICKNAME FROM TB_MEMBER
+                               WHERE WRITER_NO = MEM_NO
+                               AND ROWNUM = 1) AS WRITER    		  /* 작성자명 */
+        FROM TB_ㄸㅍ뚰
+             
+         WHERE  1=1
+         <if test="eventNo != null and !evnetNo.equals('')">
+         	AND EVENT_NO = #{noticeNo}
+         </if>    
+
+</select>
+
+	
+</mapper>

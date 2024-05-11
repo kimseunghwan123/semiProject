@@ -1,0 +1,12 @@
+package com.kh.thenolja.event.model.service;
+
+import java.util.List;
+
+import com.kh.thenolja.event.model.vo.Event;
+
+public interface EventService {
+
+	List<Event>selectEventlist(); // 이벤트 조회
+	
+	
+}

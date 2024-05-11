@@ -41,7 +41,34 @@ public class EventController {
 		
 		return "event/eventList";
 	
-	
 	}
+	/* 공지사항 상세내용 조회 (수정, 상세페이지 공통)*/
+	@RequestMapping("selectUpdate.event")
+	public String eventUpdForm(@RequestParam("eventNo") int eventNo, 
+								@RequestParam("flag") String flag,
+								Model modle) {
+		System.out.println("[EventController eventUpdForm eventNo, flag] " 
+								+ eventNo + ", " + flag);
+
+		String redirectUrl = "";
+		Event ets = new Event();
+		ets = eventSvc.selectEventOne(eventNo, flag);
+		
+		// 수정, 상세페이지에서 조회내용 보여줄 때 사용할 모델명
+		modle.addAttribute("eventOne", ets);
+		
+		// "noticeList.jsp에서 파라미터로 넘겨준 flag값이 Y이면 수정페이지, N이면 상세페이지로 redirect해줌.
+		if("Y".equals(flag)) {
+			redirectUrl = "event/eventUpd";
+		}else {
+			redirectUrl = "event/eventDetail";
+		}
+		
+		
+		return redirectUrl;
+	}
+	
+	
+	
 	
 }
