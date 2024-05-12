@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.thenolja.event.model.dao.EventRepository;
 import com.kh.thenolja.event.model.vo.Event;
+import com.kh.thenolja.notice.model.vo.Notice;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -18,7 +19,7 @@ public class EventServiceImpl implements EventService {
 	@Autowired
 	public EventRepository eventRepository;
 	
-	//목록조회
+	//목록조회 페이지
 	@Override
 	public List<Event>selectEventlist(){
 		System.out.println("[EventServiceImpl selectEventlist]");
@@ -29,6 +30,19 @@ public class EventServiceImpl implements EventService {
 	return list;
 	
 	}
+	
+	//이벤트 등록페이지
+	@Override
+	public int regEvent(Event et) {
+		
+		int regCnt = 0;
+		regCnt = eventRepository.regEventInfo(sqlSession, et);
+		System.out.println(regCnt);
+		return regCnt;
+	}
+	
+	
+	
 	// 상세페이지
 	@Override
 	public Event selectEventOne(int etsNo, String flag) {

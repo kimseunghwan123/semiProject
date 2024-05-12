@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>더놀자 > 이벤트 > 등록</title>
+</head>
+<body>
+
+<jsp:include page="../common/header.jsp"/>
+
+<script type="text/javascript">
+/************************ 
+* 함수설명 : 등록버튼 클릭 이벤트
+*************************/ 
+function regEvent(){
+	
+	var inptTitle   = $('#title').val();
+	var inptContent = $('#txtArea_content').val();
+	var chkStatus   = $('input[name="status"]:checked').val();
+	
+	// 유효성 검사 함수 호출
+	if(validation()){
+		// confirm 함수는 확인창 결과값으로 TRUE와 FALSE 값을 RETURN 하게 됨.
+		if(confirm("게시글을 등록하시겠습니까?")){	
+		// 게시글 저장 submission 정보 세팅
+		// data : getParameter 지정 값   : 값
+		var formDoc = $("#frm").serialize();
+		
+		$.ajax({
+			type: "POST",
+			url : "event.regInfo",
+			data : formDoc,
+			success:function(res){
+				alert("게시글이 정상적으로 등록되었습니다.");
+				location.href= "event.list";
+				/*if(res == "success"){
+					alert("게시글이 정상적으로 등록되었습니다.");
+					location.href="notice.list";
+				}else{
+					alert("게시글 등록 중 오류가 발생하였습니다.");
+					return;
+				} */
+			},
+			error:function(e){
+				alert("게시글 등록 중 오류가 발생하였습니다.");
+				return;
+			}
+			
+		});		
+		
+	    }
+	}
+}
+
+/********************************* 
+* 함수설명 : 공지사항 등록 시 유효성 검사(필수값)
+**********************************/
+function validation(){
+	
+	// 각 필드 필수값 체크
+	var content = $("#txtArea_content").val();
+	
+	// 이벤트 제목 체크
+	if($("#title").val() == ""){ 
+		alert("제목을 입력하세요.");
+		$("#title").focus();
+		return;
+	}
+	// 라디오버튼 (게시여부) 체크여부 확인
+	if( !$('input[name="status"]').is(':checked') ){
+		alert("게시여부를 선택해주세요.");
+		return;
+	}
+	
+	// 이벤트 내용 체크
+	if($("#txtArea_content").val() == ""){
+		alert("이벤트 내용을 입력해주세요.");
+		$("#txtArea_content").focus();
+		return;
+	}	
+	
+	// 이벤트 제목 글자수 체크
+	if($("#title").val().length > 30){ 
+		alert("이벤트 제목은 최대 30자까지만 입력 가능합니다.");
+		$("#title").focus();
+		return;
+	}
+	
+	// 이벤트 내용 글자수 체크
+	if(content.length > 400){
+		$("#txtArea_content").val($("#txtArea_content").val().substring(0, 400));
+		alert("공지사항은 400자까지만 입력 가능합니다.");
+		return;
+	}
+	return true;
+}
+
+/*********************************** 
+* 함수설명 : 공지사항 내용 글자 count하는 부분
+************************************/
+function countText(){
+
+	var content = $("#txtArea_content").val();
+	// 글자수 세기
+	if(content.length == 0 || content == ''){
+		$('#spn_textcount').text('0/400');
+	}else{
+		$('#spn_textcount').text(content.length + '/400');
+	}
+	
+	// 글자 수 제한
+	if(content.length > 400){
+		$("#txtArea_content").val($("#txtArea_content").val().substring(0, 400));
+		alert("공지사항은 400자까지만 입력 가능합니다.");
+		return;
+	}
+}
+
+
+</script>
+ 
+</body>
+</html>

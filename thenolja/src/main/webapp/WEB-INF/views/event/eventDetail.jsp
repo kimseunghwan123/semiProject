@@ -6,7 +6,106 @@
 <meta charset="UTF-8">
 	<title>더놀자 > 이벤트 > 상세</title>
 	<style>
+	      div{
+            box-sizing : border-box;
+        }
+
+        #wrap{
+            width: 1200px;
+            height: 1200px;
+            margin: auto;
+        }
+
+        #wrap > div{
+            width: 100%;
+        }
+
+        #header, #footer {
+            height: 15%;
+        }
+
+        #content{
+            height: 70%;
+        }
+
+        #content_1{
+            width: 100%;
+            height : 100%;
+        }
+        
+        #footer{
+			height: 15%;
+			margin: auto;
+		}
+
 	
+
+	       
+	
+
+	#content_1{
+	    width: 1200px;
+	    margin : auto;
+	}
+
+#detail-area{
+	width:100%;
+	height:100%;
+	word-break:break-all; /* 줄바꿈 처리 */
+	/*border : 1px solid lightgreen;
+    background-color: lightblue;
+    color: white;
+    font-weight: bold; */
+}
+
+
+#detail_content-area{
+	width:100%;
+	height:100%;
+    padding: 60px;
+    border-bottom: 1px solid #d1d1d7;
+    color: #1a1d1d;
+    font-size: 18px;
+    line-height: 26px;
+    white-space: break-spaces;
+}
+
+.detail_content-area{
+	display:block;
+}
+
+
+
+
+.btn-wrap{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#detail-golist{
+	width:448px;
+	color: #fff;
+    background-color: #5BA199;
+    border-color: none;
+}
+
+	#contentHeader{
+	 padding-top:5%;
+	}
+   
+   .detail_date{
+   	float : right;
+   }
+
+   
+img {
+	padding-top:10%;
+	padding-bottom:10%;
+    margin: auto;
+    display: block;
+}
 	
 	
 	
@@ -42,7 +141,7 @@
 	    <!-- 컨텐츠영역 -->		
 	</table>
 	<hr>
-	<img src="${event.EventImg}">
+	<img src="resources/images/logo.png">
 		    
 	<div class="btn-wrap">
 		<input type="button" id="detail-golist" class="btn btn-light"   value="목록으로 이동" onclick="history.back();"/>

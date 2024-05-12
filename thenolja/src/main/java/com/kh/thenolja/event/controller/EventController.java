@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.thenolja.event.model.service.EventService;
 import com.kh.thenolja.event.model.vo.Event;
+import com.kh.thenolja.notice.model.vo.Notice;
 
 @Controller
 public class EventController {
@@ -42,7 +43,34 @@ public class EventController {
 		return "event/eventList";
 	
 	}
-	/* 공지사항 상세내용 조회 (수정, 상세페이지 공통)*/
+	
+	/* 이벤트 등록페이지로 이동 */
+	@RequestMapping("event.regForm")
+	public String eventRegForm() {
+		return "event/eventReg";
+	}
+	
+	/* 이벤트 신규 등록하기 */
+	@RequestMapping("event.regInfo")
+	public String eventRegInfo(Event et, Model model) {
+		System.out.println("[Eventcontroller eventRegInfo]");
+		System.out.println(et);
+		
+		int regCnt = 0;
+		// 이벤트   등록
+		regCnt = eventSvc.regEvent(et);
+		System.out.println(regCnt);
+		
+		if(regCnt > 0) {
+			model.addAttribute("res", "SUCCESS");
+			return "redirect:event.list";
+		}else {
+			model.addAttribute("errorMsg", "게시글 등록 중 오류가 발생하였습니다.");
+			return "common/errorPage";
+		}
+		
+	}
+	/* 이벤트 상세내용 조회 (수정, 상세페이지 공통)*/
 	@RequestMapping("selectUpdate.event")
 	public String eventUpdForm(@RequestParam("eventNo") int eventNo, 
 								@RequestParam("flag") String flag,
