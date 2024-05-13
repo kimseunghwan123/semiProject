@@ -212,24 +212,28 @@
 		<thead>
 			<tr>
 				<th>no.</th>
-				<th>내용</th>
+				<th>이벤트 제목</th>
+				<th>이벤트 내용</th>
 				<th>이벤트 시작일</th>
 				<th>이벤트 종료일</th>
 				<th>이벤트진행여부</th>
-				<th>이벤트 이미지</th>
+				<th>이벤트 사진</th>
 				<th>작성자</th>
+				<th>이벤트 등록일</th>
 			</tr>
 		</thead>
 		<tbody>
              <c:forEach items="${ eventList }" var="event">
                         <tr id="tr_event" class="list">
                             <td>${ event.eventNo }</td>
+                            <td>${ event.eventTitle}</td>
                             <td>${ event.eventContent }</td>
                             <td>${ event.eventStrtDt }</td>
                             <td>${ event.eventEndDt }</td>
                             <td>${ event.eventYN }</td>
                             <td>${ event.eventImg }</td>
-                            <td>${ event.writer}</td>
+                            <td>${ writerNo }</td>
+                            <td>${ createDate }</td>
                         </tr>
            </c:forEach>
 		</tbody>

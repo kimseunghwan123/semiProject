@@ -104,7 +104,7 @@
              WRITER_NO 		= #{writerNo}
       WHERE  1=1
      <if test="eventNo != null and ! eventNo.squals('')">
-      AND    EVENT_NO 		= #{eventNo}	
+      AND    EVENT_NO = #{eventNo}	
 	</if>
 	</insert>
 	

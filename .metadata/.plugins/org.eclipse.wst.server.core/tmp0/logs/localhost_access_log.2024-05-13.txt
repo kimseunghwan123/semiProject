@@ -13,3 +13,4 @@
 0:0:0:0:0:0:0:1 - - [13/May/2024:14:52:24 +0900] "GET /thenolja/ HTTP/1.1" 200 7697
 0:0:0:0:0:0:0:1 - - [13/May/2024:14:52:28 +0900] "GET /thenolja/event.list HTTP/1.1" 200 12680
 0:0:0:0:0:0:0:1 - - [13/May/2024:14:52:29 +0900] "GET /thenolja/selectUpdate.event?eventNo=1&flag=Y HTTP/1.1" 200 18819
+0:0:0:0:0:0:0:1 - - [13/May/2024:15:22:31 +0900] "GET /thenolja/ HTTP/1.1" 200 7697

@@ -43,7 +43,7 @@ public class EventController {
 		return "event/eventList";
 	
 	}
-	
+	/*등록해결되지않음*/
 	/* 이벤트 등록페이지로 이동 */
 	@RequestMapping("event.regForm")
 	public String eventRegForm() {
@@ -70,6 +70,7 @@ public class EventController {
 		}
 		
 	}
+	/*제대로 보여지지않음*/
 	/* 이벤트 상세내용 조회 (수정, 상세페이지 공통)*/
 	@RequestMapping("selectUpdate.event")
 	public String eventUpdForm(@RequestParam("eventNo") int eventNo, 
@@ -95,7 +96,7 @@ public class EventController {
 		
 		return redirectUrl;
 	}
-	
+	/*수정,삭제 되지않음*/
 	/* 이벤트 수정하기 */
 	@RequestMapping("event.updInfo")
 	public String eventUpdInfo(Event et, Model model) {
@@ -123,7 +124,7 @@ public class EventController {
 		System.out.println(et);
 		
 		int delCet = 0;
-		// 공지사항 삭제
+		// 이벤트 삭제
 		delCet = eventSvc.delInfo(et);
 		System.out.println(delCet);
 		
