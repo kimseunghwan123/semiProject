@@ -238,17 +238,17 @@
 <script>
 	// loginId null 체크
 	// 수정화면 진입 (관리자전용URL)
-/*	$('tbody > tr.list').click(function(){
+	$('tbody > tr.list').click(function(){
         const eventNo = $(this).children().eq(0).text();
         location.href= 'selectUpdate.event?eventNo=' + eventNo + '&flag=' + 'Y';
       })
-*/
+/*	
        	// 상세화면 진입 (회원전용URL)
         $('tbody > tr.list').click(function(){
            const eventNo = $(this).children().eq(0).text();
            location.href= 'selectUpdate.event?eventNo=' + eventNo + '&flag=' + 'N';
         });
-	
+	*/
 	</script>	 
 
 

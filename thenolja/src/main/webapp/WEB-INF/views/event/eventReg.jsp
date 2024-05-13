@@ -1,11 +1,166 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>더놀자 > 이벤트 > 등록</title>
 <style>
+#txtArea_content{
+	width:650px;
+	height:350px;
+}
+
+.th_left{
+    width:475px;
+}
+
+#spn_textcount{
+	float:right;
+}
+
+#td_status_left{
+	float:left;
+	border: 1px solid #17a2b8;
+}
+
+#save{
+    background: #17a2b8;
+    color: #fff;
+    border: 1px solid #17a2b8;
+}
+
+#cancel{
+	background:#b6b6b6;
+	border:1px solid #b6b6b6;
+}
+
+
+.radio-btn{
+    position: relative;
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+/* 게시여부 라디오버튼 영역 스타일적용 START */
+.radio-btn-wrap{
+	margin:-5px -4px;
+	float:left;
+}
+
+.radio-btn{
+	margin: 5px 4px;
+}
+
+.radio-btn-wrap .radio-btn input[type="radio"] {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.radio-btn-wrap .radio-btn input[type="radio"]:checked + label{
+    
+    background: #17a2b8;
+    color: #fff;
+    border: 1px solid #17a2b8;
+    
+    /*background: cadetblue;
+    color: #fff;
+    border: 1px solid cadetblue;*/
+}
+
+.radio-btn-wrap .radio-btn label {
+    display: block;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    color: #636366;
+    line-height: 38px;
+    border: 1px solid #17a2b8;
+    /*border: 1px solid cadetblue;*/
+    border-radius: 24px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.filebox{
+	margin-top:8px;
+}
+
+.filebox label {
+	float:left;
+    display: inline-block;
+    width: 140px;
+    height: 48px;
+    padding: 0 12px;
+    color: #3a3a3d;
+    font-size: 18px;
+    line-height: 48px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #9ca0a1;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.filebox .upload-name {
+    display: inline-block;
+    padding: 0 32px 0 12px;
+    background: none;
+    vertical-align: middle;
+    border: 0;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    color: #1a1d1d;
+    font-size: 18px;
+    line-height: 48px;
+    box-sizing: border-box;
+}
+
+/* 삭제버튼 */
+.btn-reset {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: url(../images/btn/btn_inp_reset.png) 0 0 no-repeat;
+}
+
+.regc {
+	display : none;
+	float : center;
+}
+
+.evnt_inner_inpt{
+    height: 48px;
+    padding: 0 30px 0 16px;
+    border: 1px solid #aeaeb2;
+    border-radius: 10px;
+    background-color: #d7d7d7;
+}
+/* 첨부파일 영역 스타일적용 END */
 
 
 </style>

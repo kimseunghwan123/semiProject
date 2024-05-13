@@ -10,6 +10,8 @@ import com.kh.thenolja.event.model.dao.EventRepository;
 import com.kh.thenolja.event.model.vo.Event;
 import com.kh.thenolja.notice.model.vo.Notice;
 
+
+
 @Service
 public class EventServiceImpl implements EventService {
 
@@ -43,7 +45,7 @@ public class EventServiceImpl implements EventService {
 	
 	
 	
-	// 상세페이지
+	// 이벤트 상세페이지 조회페이지
 	@Override
 	public Event selectEventOne(int etsNo, String flag) {
 		
@@ -60,6 +62,24 @@ public class EventServiceImpl implements EventService {
 	//	ets = eventRepository.selectEventOne(sqlSession, etsNo);
 		System.out.println(ets);
 		return ets;
+	}
+	//이벤트 수정페이지
+	@Override
+	public int updEvent(Event et) {
+		
+		int updCet = 0;
+		updCet = eventRepository.updEventInfo(sqlSession, et);
+		System.out.println(updCet);
+		return updCet;
+	}
+	//이벤트 삭제
+	@Override
+	public int delInfo(Event et) {
+		
+		int delCet = 0;
+		delCet = eventRepository.delEventInfo(sqlSession, et);
+		System.out.println(delCet);
+		return delCet;
 	}
 	
 	

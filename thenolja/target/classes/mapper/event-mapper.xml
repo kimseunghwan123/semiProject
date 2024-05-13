@@ -91,6 +91,32 @@
            AND EVENT_NO = #{eventNo}        
 			 </if>
 	</select>
-
+	
+	<!-- 이벤트 수정 쿼리문 -->
+	<insert id="updEvent" parameterType="event">
+		UPDATE TB_EVENT
+      SET    EVENT_TITLE 	= #{eventTitle},
+          	 EVENT_CONTENT 	= #{eventContent},
+             EVENT_YN 		= #{eventYN},
+             EVENT_STRT_DT 	= #{eventStrtDt},
+             EVENT_END_DT 	= #{eventEndDt},
+             EVENT_IMG 		= #{eventImg},
+             WRITER_NO 		= #{writerNo}
+      WHERE  1=1
+     <if test="eventNo != null and ! eventNo.squals('')">
+      AND    EVENT_NO 		= #{eventNo}	
+	</if>
+	</insert>
+	
+	<!-- 이벤트 삭제 -->
+<delete id="delEvent" parameterType="event">
+	DELETE  FROM  TB_EVENT
+	WHERE   1=1
+	<if test="eventNo != null and !eventNo.equals('')">
+		AND     EVENT_NO = #{eventNo}
+	</if>	
+</delete>
+	
+	
 	
 </mapper>

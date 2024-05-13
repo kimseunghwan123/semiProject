@@ -28,8 +28,16 @@ public class EventRepository {
 			System.out.println("[EventRepository selectEventOne] " + etsNo);
 			return sqlSession.selectOne("eventMapper.selectEventOne", etsNo);
 		}
-	
-	
+		// 이벤트 수정
+		public int updEventInfo(SqlSessionTemplate sqlSession, Event et) {
+			System.out.println("[EventRepository updEventInfo Vo] " + et);
+			return sqlSession.insert("eventMapper.updEvent", et);
+		}
+		// 이벤트 삭제
+		public int delEventInfo(SqlSessionTemplate sqlSession, Event et) {
+			System.out.println("[EventRepository delEventInfo Vo] " + et);
+			return sqlSession.insert("eventMapper.delEvent", et);
+		}
 	
 	
 }

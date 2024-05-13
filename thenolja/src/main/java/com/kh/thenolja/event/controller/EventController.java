@@ -96,7 +96,45 @@ public class EventController {
 		return redirectUrl;
 	}
 	
-	
-	
+	/* 이벤트 수정하기 */
+	@RequestMapping("event.updInfo")
+	public String eventUpdInfo(Event et, Model model) {
+		System.out.println("[Eventcontroller eventUpdInfo]");
+		System.out.println(et);
+		
+		int updCet = 0;
+		// 이벤트 수정
+		updCet = eventSvc.updEvent(et);
+		System.out.println(updCet);
+		
+		if(updCet > 0) {
+			model.addAttribute("res", "SUCCESS");
+			return "redirect:event.list";
+		}else {
+			model.addAttribute("errorMsg", "게시글 수정중 오류가 발생하였습니다.");
+			return "common/errorPage";
+		}
+		
+	}
+	/* 이벤트 삭제 */
+	@RequestMapping("event.delInfo")
+	public String eventDelInfo(Event et, Model model) {
+		System.out.println("[Eventcontroller eventDelInfo]");
+		System.out.println(et);
+		
+		int delCet = 0;
+		// 공지사항 삭제
+		delCet = eventSvc.delInfo(et);
+		System.out.println(delCet);
+		
+		if(delCet > 0) {
+			model.addAttribute("res", "SUCCESS");
+			return "redirect:event.list";
+		}else {
+			model.addAttribute("errorMsg", "게시글 삭제중 오류가 발생하였습니다.");
+			return "common/errorPage";
+		}
+		
+	}	
 	
 }

@@ -13,5 +13,11 @@ public interface EventService {
 	int regEvent(Event et);		 				// 이벤트 등록
 	//이벤트 상세조회
 	Event selectEventOne(int etsNo, String flag);	// 이벤트 상세내용 조회
-	//
+	//이벤트수정
+	int updEvent(Event et);   //이벤트 수정
+	//이벤트 삭제
+	int delInfo(Event et);		 					// 이벤트 삭제
+
+
+
 }
