@@ -63,6 +63,7 @@
 				<th>작성일</th>
 				<th>조회수</th>
 				<th>게시여부</th>
+				<th>첨부파일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -74,48 +75,62 @@
                             <td>${ notice.createDate }</td>
                             <td>${ notice.viewCount }</td>
                             <td>${ notice.status }</td>
+                            <td>${ notice.filePath }</td>
                         </tr>
            </c:forEach>
 		</tbody>
 	</table>
 	
-    <%--         <div id="pagingArea">
+            <div id="pagingArea">
                 <ul class="pagination">
                     
-                   <c:choose> 
+                   <c:choose>
+                    
                    	 <c:when test="${ pageInfo.currentPage eq 1}">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
                      </c:when>
+                     
                    <c:otherwise>
-                   		<li>
-                   			<a class="page-link" href="list.board?page=${pageInfo.currentPage - 1}">
-                   				Previous
-                   			</a>
-                   		</li>
+                   		<li><a class="page-link" href="list.board?page=${pageInfo.currentPage - 1} ">이전</a></li>	
+                   		<li class="page-item"><a class="page-link" href="#">1</a></li>
+ 						<li class="page-item"><a class="page-link" href="#">2</a></li>
+  						<li class="page-item"><a class="page-link" href="#">3</a></li>
                    </c:otherwise>
+                   
                   </c:choose>
+                  
                    <c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" var="p">
+                   
                       <li class="page-item"><a class="page-link" href="list.board?page=${p}">${p}</a></li>
+                      
                     </c:forEach>
                    
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
                 
                 </ul>
-            </div>	 --%>
-	 
+            </div>	
+ <%-- 
+	<ul class="pagination">
+	  <li class="page-item"><a class="page-link" href="#">이전</a></li>
+	  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+	  <li class="page-item "><a class="page-link" href="#">2</a></li>
+	  <li class="page-item"><a class="page-link" href="#">3</a></li>
+	  <li class="page-item"><a class="page-link" href="#">다음</a></li>
+	</ul>
+--%>
 	<script>
 	// loginId null 체크
 	// 수정화면 진입 (관리자전용URL)
-	/*$('tbody > tr.list').click(function(){
+	$('tbody > tr.list').click(function(){
         const noticeNo = $(this).children().eq(0).text();
         location.href= 'selectUpdate.notice?noticeNo=' + noticeNo + '&flag=' + 'Y';
-      })*/
-
+      })
+		
        	// 상세화면 진입 (회원전용URL)
-        $('tbody > tr.list').click(function(){
+    /*     $('tbody > tr.list').click(function(){
            const noticeNo = $(this).children().eq(0).text();
            location.href= 'selectUpdate.notice?noticeNo=' + noticeNo + '&flag=' + 'N';
-        });
+        }); */
 	
 	</script>	 
 	 

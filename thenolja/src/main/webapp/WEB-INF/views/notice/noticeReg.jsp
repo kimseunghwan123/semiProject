@@ -213,7 +213,6 @@ $(function(){
 * 함수설명 : 등록버튼 클릭 이벤트
 *************************/ 
 function regNotice(){
-	
 	var inptTitle   = $('#title').val();
 	var inptContent = $('#txtArea_content').val();
 	var chkStatus   = $('input[name="status"]:checked').val();
@@ -224,6 +223,7 @@ function regNotice(){
 		if(confirm("게시글을 등록하시겠습니까?")){	
 		// 게시글 저장 submission 정보 세팅
 		// data : getParameter 지정 값   : 값
+		debugger
 		var formDoc = $("#frm").serialize();
 		
 		$.ajax({
@@ -316,9 +316,32 @@ function countText(){
 	}
 }
 
+	function upload(){
+		//debugger
+		console.log( $("#file_110") );
+		console.log($("#file_110")[0].files[0].name);
+		
+		// 파일명 받기
+		var fileName = "";
+		if( typeof $("#file_110")[0] != "undefined"){
+			fileName = $("#file_110")[0].files[0].name;
+		}
+		
+		// 파일명 upload 영역의 fileName_110인 요소에 세팅하기
+		$("#fileName_110").val(fileName);
+		alert("첨부파일이 선택되었습니다.");
+		
+		
+	}
 
+	 function deletfile(){
+		$("#fileReset").val($("file_110"));
+		alert("첨부파일이 삭제되었습니다.");
+		return;
+	} 
+	
 </script>
- 
+
 </head>
 <body>
 	<div class="container">
@@ -327,8 +350,8 @@ function countText(){
 	<br>
 	<div class="align_center">
 		<h2 class="board-basic">공지사항</h2>
-	</div>
 	
+	</div>
 	<!-- FORM 영역 START -->
 	<form id="frm" action="notice.regInfo" >
 		<table class="table-light table-striped text-center" width="100%">
@@ -336,7 +359,6 @@ function countText(){
 				<th class="th_left"><span>제목</span></th>
 				<td><input type="text" id="title" name="noticeTitle" maxlength="26" style="width:650px;"/></td>
 			</tr>
-			
        <tr>
        		<!-- 게시여부 영역  STRT -->
            	<th class="th_left"><span>게시여부</span></th>
@@ -371,26 +393,25 @@ function countText(){
             </td>
             <td></td>
         </tr>
-         
+
         <!-- 첨부파일 전체영역 START -->         
 		<tr data-attr_seq="194" data-attr_disp_form_cd="FD" data-attr_calc_typ_cd="null" data-attr_mndt_inpt_yn="Y">	
 			<th><span>첨부파일</span></th>	
 			
 			<td>
 				<div class="filebox">	
-			
-					<label for="file_110" tabindex="0">파일찾기</label>	
-						<input type="file" id="file_110" name="fileUpload" data-file_id="110" tabindex="-1">	
+					<label for="file_110" tabindex="0">파일선택</label>	
+						<input type="file" id="file_110" name="fileUpload" data-file_id="110" tabindex="-1" onchange="upload();">	
 						<input type="hidden" id="apndFileId_110" data-attr_item_sno="" data-prod_id="">	
 					
 					<!-- 업로드 영역 START -->
-					<div class="upload-box">
-						<input type="text" id="fileName_110" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
-						<button type="button" class="btn-reset" id="fileReset"><span class="blind">삭제</span></button>	
+					<div class="upload-box">    
+						<input type="text" id="fileName_110" name="filePath" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
+						<button type="button" id="fileReset" class="btn-reset" onclick="deletfile();"><span class="blind">삭제</span></button>	
 					</div>
 					<!-- 업로드 영역 END -->
-				
 				</div>
+					
 					<ul class="list-text interval bullet">	
 						<!-- <li>허용 파일 형식 : pdf, jpg/jpeg, png, gif, doc/docx, hwp (15MB 미만)</li> -->
 					</ul>	

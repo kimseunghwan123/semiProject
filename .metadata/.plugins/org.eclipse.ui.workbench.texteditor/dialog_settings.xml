@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="logo"/>
+		<item key="selection" value="regNotice"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="logo"/>
-			<item value="notice.list"/>
-			<item value="notice"/>
-			<item value="getCurrentPage"/>
-			<item value="currentPage"/>
-			<item value="getCurrentPage\"/>
-			<item value="footer"/>
-			<item value="1200px"/>
-			<item value="ViewCount"/>
-			<item value="viewCount"/>
-			<item value="detail-area"/>
-			<item value="detail_content-area"/>
-			<item value="&lt;jsp:include page=&quot;../common/header.jsp&quot;/&gt;"/>
-			<item value="align_center"/>
-			<item value="noticeOne"/>
+			<item value="regNotice"/>
+			<item value="[Noticecontroller noticeRegInfo]"/>
+			<item value="regNotice()"/>
+			<item value="fileName_110"/>
+			<item value="upload("/>
+			<item value="upload"/>
+			<item value="file_110"/>
+			<item value="loginForm.member"/>
+			<item value="apndFileId_110\"/>
+			<item value="apndFileId_110"/>
+			<item value="sibal"/>
+			<item value="fileUpload"/>
+			<item value="regNotice();"/>
+			<item value="regnotice"/>
+			<item value="등록"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="824"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="35"/>
+		<item key="DIALOG_Y_ORIGIN" value="131"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

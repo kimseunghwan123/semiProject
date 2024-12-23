@@ -311,6 +311,11 @@ function countText(){
 		return;
 	}
 }
+
+function upload(){
+	$("#fileName_110").val($("#file_110"));
+}
+
 </script>
 
 </head>
@@ -401,9 +406,8 @@ function countText(){
 			
 			<td>
 				<div class="filebox">	
-			
 					<label for="file_110" tabindex="0">파일찾기</label>	
-						<input type="file" id="file_110" name="fileUpload" data-file_id="110" tabindex="-1">	
+						<input type="file" id="file_110" name="fileUpload" data-file_id="110" tabindex="-1" onchange="upload();">	
 						<input type="hidden" id="apndFileId_110" data-attr_item_sno="" data-prod_id="">	
 					
 					<!-- 업로드 영역 START -->

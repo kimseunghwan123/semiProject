@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=thenolja/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.thenolja.event.model.service{EventService.java[EventService" modifiers="513" timestamp="1715496435415"/>
+<typeInfo handle="=thenolja/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.thenolja.event.model.service{EventService.java[EventService" modifiers="513" timestamp="1717224129659"/>
+<typeInfo handle="=thenolja/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.thenolja.notice.model.service{NoticeService.java[NoticeService" modifiers="513" timestamp="1717224129664"/>
+<typeInfo handle="=thenolja/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.thenolja.member.model.service{MemberService.java[MemberService" modifiers="513" timestamp="1734589761538"/>
 </typeInfoHistroy>

@@ -1,0 +1,11 @@
+package com.kh.thenolja.member.model.service;
+
+public interface MemberService {
+
+	
+	// 로그인(SELECT)
+		Member login(Member member);
+	
+	
+	
+}

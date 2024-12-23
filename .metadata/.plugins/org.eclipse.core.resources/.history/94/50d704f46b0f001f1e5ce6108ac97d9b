@@ -1,8 +1,0 @@
-package com.kh.thenolja.event.model.service;
-
-public interface EventService {
-
-	List<Event>selectEventlist();
-	
-	
-}

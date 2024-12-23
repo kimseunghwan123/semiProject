@@ -19,6 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	// 페이징 처리
 	@Override
 	public int selectListCount() {
 		int listCount = 0;
@@ -27,13 +28,14 @@ public class NoticeServiceImpl implements NoticeService {
 		return listCount;
 	}
 	
+	// 공지사항 리스트 기능
 	@Override
 	public List<Notice> selectNoticelist(){
 		System.out.println("[NoticeServiceImpl selectNoticelist]");
 		
 		// 페이징 처리
-//		int offset =(pi.getCurrentPage() - 1) * pi.getBoardLimit();
-//		RowBounds rowBounds = new RowBounds(offset,pi.getBoardLimit());
+		//int offset =(pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		//RowBounds rowBounds = new RowBounds(offset,pi.getBoardLimit());
 		
 		List<Notice> list = noticeRepository.selectNoticelist(sqlSession);
 		System.out.println("[NoticeServiceImpl list결과] ");
@@ -45,6 +47,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return list;
 	}
 	
+	// 공지사항 등록 기능
 	@Override
 	public int regNotice(Notice nt) {
 		
@@ -54,6 +57,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return regCnt;
 	}
 	
+	// 공지사항 상세내용 조회
 	@Override
 	public Notice selectNoticeOne(int ntsNo, String flag) {
 		
@@ -71,14 +75,14 @@ public class NoticeServiceImpl implements NoticeService {
 		System.out.println(nts);
 		return nts;
 	}
-	
+	// 공지사항 접속시 조회 수 증가 기능
 	@Override
 	public int increaseViewCount(int ntsNo) {
 		int updVwCount = 0;
 		updVwCount = noticeRepository.increaseViewCount(sqlSession, ntsNo);
 		return updVwCount;
 	}
-	
+	// 공지사항 수정 기능 
 	@Override
 	public int updNotice(Notice nt) {
 		
@@ -87,7 +91,7 @@ public class NoticeServiceImpl implements NoticeService {
 		System.out.println(updCnt);
 		return updCnt;
 	}
-	
+	// 공지사항 삭제 기능
 	@Override
 	public int delInfo(Notice nt) {
 		

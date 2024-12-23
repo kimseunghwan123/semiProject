@@ -78,16 +78,13 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
 		<!-- Bootstrap theme -->
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-		        
-        
-
     </style>
 </head>
 <body>
 
 	<c:if test="${ not empty alertMsg}"> 
 		<script>
-			alertify.alert( "축하합니다", '${alertMsg}', function(){alertify.succes("띵똥")});
+			alertify.alert( "축하합니다", '${alertMsg}', function(){alertify.succes("성공")});
 		</script>
 		<c:remove var="alertMsg" scope="session"/>
 	</c:if>
@@ -103,13 +100,11 @@
                
                <c:choose>
                <c:when test="${empty sessionScope.loginUser}">
-               
                 <!-- 로그인 전 -->
-                <a href="enrollForm.member">회원가입</a>
-                <a data-toggle="modal" data-target="#loginModal">로그인</a> <!-- 모달의 원리 : 이 버튼 클릭시 data-targer에 제시되어있는 해당 아이디의 div요소를 띄워줌 -->
+                <a href="loginForm.member">로그인</a> | <a href="enrollForm.member">회원가입</a>
+               <!--   <a data-toggle="modal" data-target="#loginModal">로그인</a>--> <!-- 모달의 원리 : 이 버튼 클릭시 data-targer에 제시되어있는 해당 아이디의 div요소를 띄워줌 -->
                </c:when>
                <c:otherwise>
-               
                  <!-- 로그인 후 -->
                     <label>${ sessionScope.loginUser.userName}님 환영합니다</label> &nbsp;&nbsp;
                     <a href="mypage.member">마이페이지</a>
@@ -128,18 +123,20 @@
             </ul>
         </div>
     </div>
-    <!-- 로그인 클릭 시 뜨는 모달 (기존에는 안보이다가 위의 a 클릭 시 보임) -->
-    <div class="modal fade" id="loginModal">
+   
+   
+ <!--    <!-- 로그인 클릭 시 뜨는 모달 (기존에는 안보이다가 위의 a 클릭 시 보임) -->
+ <!--    <div class="modal fade" id="loginModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <!-- Modal Header -->
+                Modal Header
                 <div class="modal-header">
                     <h4 class="modal-title">로그인</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
         
                 <form action="login.member" method="post">
-                    <!-- Modal body -->
+                    Modal body
                     <div class="modal-body">
                         <label for="userId" class="mr-sm-2">로그인 : </label>
                         <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter ID" id="userId" name="userId"> <br>
@@ -147,7 +144,7 @@
                         <input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter Password" id="userPwd" name="userPwd">
                     </div>
                            
-                    <!-- Modal footer -->
+                    Modal footer
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">로그인</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
@@ -156,8 +153,8 @@
             </div>
         </div>
 
-    </div>
+    </div> 
     
-   <!--  <br clear="both"> -->
+    <br clear="both">  -->
 </body>
 </html>

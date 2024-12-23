@@ -1,0 +1,47 @@
+package com.kh.thenolja.member.controller;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.kh.thenolja.member.model.service.MemberService;
+import com.kh.thenolja.member.model.vo.Member;
+
+@Controller
+public class MemberController {
+
+	
+	@Autowired
+	private MemberService memberService;
+	
+	
+	@RequestMapping("login.memberloginForm.member")
+	public ModelAndView login(Member member, HttpSession session, ModelAndView mv) {
+		
+		Member loginUser = memberService.login(member);
+		System.out.println("잘나오니?");
+		session.setAttribute("loginUser", loginUser);
+		
+		mv.setViewName("main");
+	
+		return mv;
+	}
+	
+	
+	@RequestMapping("login.member")	
+	public String loginForm() {
+		System.out.println("controller잘나온다");
+		return "member/memberLoginForm";
+	
+		
+	}
+	
+	
+	
+	
+	
+	
+}

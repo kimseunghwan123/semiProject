@@ -1,5 +1,0 @@
-package com.kh.thenolja.event.model.dao;
-
-public class EventRepository {
-
-}

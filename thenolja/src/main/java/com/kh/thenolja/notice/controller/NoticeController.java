@@ -29,8 +29,7 @@ public class NoticeController {
 		System.out.println("[NoticeController noticelist]");
 		// ## TO DO : 공지사항 리스트 조회	
 
-		// 페이징 처리
-		
+		// 페이징 처리  
 		//PageInfo pi = Pagination.getPageInfo(notiSvc.selectListCount(), page, 10, 5);	
 		
 		
@@ -44,10 +43,10 @@ public class NoticeController {
 		model.addAttribute("noticeList", noticelist);
 		//model.addAttribute("pageInfo",pi);
 		
-		return "notice/noticeList";
+		return "notice/noticeList";  
 	}
 	
-	/* 공지사항 등록페이지로 이동 */
+	/* 공지사항 등록페이지로 이동 */ 
 	@RequestMapping("notice.regForm")
 	public String noticeRegForm() {
 		return "notice/noticeReg";
@@ -59,13 +58,14 @@ public class NoticeController {
 		System.out.println("[Noticecontroller noticeRegInfo]");
 		System.out.println(nt);
 		
+		
 		int regCnt = 0;
 		// 공지사항 등록
 		regCnt = notiSvc.regNotice(nt);
 		System.out.println(regCnt);
 		
 		if(regCnt > 0) {
-			model.addAttribute("res", "SUCCESS");
+			model.addAttribute("res", "SUCCESS"); // (String name,Object value)
 			return "redirect:notice.list";
 		}else {
 			model.addAttribute("errorMsg", "게시글 등록 중 오류가 발생하였습니다.");

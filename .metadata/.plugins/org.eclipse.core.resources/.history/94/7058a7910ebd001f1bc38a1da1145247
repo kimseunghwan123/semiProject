@@ -1,0 +1,6 @@
+package com.kh.thenolja.member.controller;
+
+@Controller
+public class SocialLoginController {
+
+}
