@@ -313,8 +313,29 @@ function countText(){
 }
 
 function upload(){
-	$("#fileName_110").val($("#file_110"));
+	//debugger
+	console.log( $("#file_110") );
+	console.log($("#file_110")[0].files[0].name);
+	
+	// 파일명 받기
+	var fileName = "";
+	if( typeof $("#file_110")[0] != "undefined"){
+		fileName = $("#file_110")[0].files[0].name;
+	}
+	
+	// 파일명 upload 영역의 fileName_110인 요소에 세팅하기
+	$("#fileName_110").val(fileName);
+	alert("첨부파일이 선택되었습니다.");
+	
+	
 }
+
+ function deletfile(){
+	$("#fileReset").val($("file_110"));
+	alert("첨부파일이 삭제되었습니다.");
+	return;
+} 
+
 
 </script>
 
@@ -406,24 +427,24 @@ function upload(){
 			
 			<td>
 				<div class="filebox">	
-					<label for="file_110" tabindex="0">파일찾기</label>	
+					<label for="file_110" tabindex="0">파일선택</label>	
 						<input type="file" id="file_110" name="fileUpload" data-file_id="110" tabindex="-1" onchange="upload();">	
 						<input type="hidden" id="apndFileId_110" data-attr_item_sno="" data-prod_id="">	
 					
 					<!-- 업로드 영역 START -->
-					<div class="upload-box">
-						<input type="text" id="fileName_110" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
-						<button type="button" class="btn-reset" id="fileReset"><span class="blind">삭제</span></button>	
+					<div class="upload-box">    
+						<input type="text" id="fileName_110" name="filePath" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
+						<button type="button" id="fileReset" class="btn-reset" onclick="deletfile();"><span class="blind">삭제</span></button>	
 					</div>
 					<!-- 업로드 영역 END -->
-				
 				</div>
+					
 					<ul class="list-text interval bullet">	
 						<!-- <li>허용 파일 형식 : pdf, jpg/jpeg, png, gif, doc/docx, hwp (15MB 미만)</li> -->
 					</ul>	
 			</td>
 		</tr> 
-		<!-- 첨부파일 전체영역 END -->                
+		<!-- 첨부파일 전체영역 END -->             
                  
         <tr>
             <td colspan="2">

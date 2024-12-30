@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="regNotice"/>
+		<item key="selection" value="login.member"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="login.member\"/>
+			<item value="login.member"/>
+			<item value="loginMember"/>
+			<item value="userName"/>
 			<item value="regNotice"/>
 			<item value="[Noticecontroller noticeRegInfo]"/>
 			<item value="regNotice()"/>
@@ -19,10 +23,6 @@
 			<item value="apndFileId_110\"/>
 			<item value="apndFileId_110"/>
 			<item value="sibal"/>
-			<item value="fileUpload"/>
-			<item value="regNotice();"/>
-			<item value="regnotice"/>
-			<item value="등록"/>
 		</list>
 		<list key="replacehistory">
 		</list>

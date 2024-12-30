@@ -47,6 +47,7 @@
 		BY 
 			CREATE_DATE DESC, 
 			NOTICE_NO DESC
+			
 		
 			
 </select>
@@ -81,7 +82,8 @@ VALUES
 	UPDATE TB_NOTICE
 	SET    NOTICE_VIEW_COUNT = (NOTICE_VIEW_COUNT + 1)
 	<if test="noticeNo != null and !noticeNo.equals('')">
-		WHERE NOTICE_NO = #{noticeNo}    
+		WHERE NOTICE_NO = #{noticeNo}
+		    
 	</if>
 </insert>
 
@@ -95,7 +97,8 @@ VALUES
               TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE,       /* 공지사항 등록일 */
               (SELECT NICKNAME FROM TB_MEMBER
                                WHERE WRITER_NO = MEM_NO
-                               AND ROWNUM = 1) AS WRITER    		  /* 작성자명 */
+                               AND ROWNUM = 1) AS WRITER,    		  /* 작성자명 */
+              FILE_PATH                 
                             
                                
                                
@@ -103,7 +106,8 @@ VALUES
              
          WHERE  1=1
          <if test="noticeNo != null and !noticeNo.equals('')">
-         	AND NOTICE_NO = #{noticeNo}
+         	AND 
+         		NOTICE_NO = #{noticeNo}
          </if>    
 
 </select>
@@ -117,7 +121,8 @@ VALUES
 		   FILE_PATH      = #{filePath}
 	WHERE  1=1
 	<if test="noticeNo != null and !noticeNo.equals('')">
-		AND    NOTICE_NO      = #{noticeNo}
+		AND    
+			NOTICE_NO      = #{noticeNo},
 	</if>	
 </insert>
 

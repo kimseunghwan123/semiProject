@@ -32,11 +32,13 @@ public class MemberServiceImpl implements MemberService {
 	// 회원 수정 기능
 	@Override
 	public int update(Member member) {
+		System.out.println("update serviceImpl 잘나온다");
 		return memberRepository.update(sqlSession, member);
 	}
 	// 회원 탈퇴 기능
 	@Override
 	public int delete(Member member) {
+		System.out.println("delete serviceImpl 잘나온다");
 		return memberRepository.delete(sqlSession, member);
 	}
 	

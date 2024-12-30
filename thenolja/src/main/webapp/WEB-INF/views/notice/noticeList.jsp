@@ -127,10 +127,10 @@
       })
 		
        	// 상세화면 진입 (회원전용URL)
-    /*     $('tbody > tr.list').click(function(){
+      /*    $('tbody > tr.list').click(function(){
            const noticeNo = $(this).children().eq(0).text();
            location.href= 'selectUpdate.notice?noticeNo=' + noticeNo + '&flag=' + 'N';
-        }); */
+        });  */
 	
 	</script>	 
 	 

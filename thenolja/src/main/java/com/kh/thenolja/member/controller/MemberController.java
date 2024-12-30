@@ -25,8 +25,9 @@ public class MemberController {
 	 * */
 	@RequestMapping("login.member")
 	public ModelAndView login(Member member, HttpSession session, ModelAndView mv) {
-		
+		System.out.println("param : " + member);
 		Member loginMember = memberService.login(member);
+		System.out.println("loginMember : " + loginMember);
 		if(loginMember != null) {
 		session.setAttribute("loginMember", loginMember);
 		mv.setViewName("main");
@@ -44,14 +45,12 @@ public class MemberController {
 	 * 로그인 폼
 	 * 
 	 * */
-	@RequestMapping("loginForm.member")	
-	public String loginForm() {
-		System.out.println("login controller 화면 잘나온다");
-		return "member/memberLoginForm";
-	
-		
-	}
-	
+//	@RequestMapping("loginForm.member")	
+//	public String loginForm(Member member) {
+//		System.out.println("login controller화면 잘나온다");
+//		return "member/memberLoginForm";
+//	}
+//	
 	/***
 	 * 마이페이지
 	 * @return
@@ -59,6 +58,7 @@ public class MemberController {
 	@RequestMapping("mypage.member")
 	public String myPage() {
 		// /WEB-INF/views/member/myPage.jsp
+		System.out.println("마이페이지 controller 잘나온다");
 		return "member/myPage";
 	}
 	
@@ -73,7 +73,7 @@ public class MemberController {
 	public ModelAndView handleUpdateRequest(/*@ModelAttribute*/ Member member, ModelAndView mv, HttpSession session) {
 		if(memberService.update(member) > 0) {
 			session.setAttribute("alertMsg", "정보 수정 성공");
-			session.setAttribute("loginUser", memberService.login(member));
+			session.setAttribute("loginMember", memberService.login(member));
 			mv.setViewName("redirect:mypage.member");
 		} else {
 			mv.addObject("errorMsg", "정보 수정 실패..").setViewName("common/errorPage");
@@ -87,8 +87,8 @@ public class MemberController {
 	 */
 	@RequestMapping("logout.member")
 	public String logout(HttpSession session) {
-		session.removeAttribute("loginUser");
-		return "redirect:/";
+		session.removeAttribute("loginMember");
+		return "common/header";
 	}
 	
 	
@@ -129,8 +129,8 @@ public class MemberController {
 	 */
 	@RequestMapping("delete.member")
 	public String delete(String userPwd, HttpSession session) {
-		Member loginUser = (Member)session.getAttribute("loginUser");
-		if ( loginUser != null) {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		if ( loginMember != null) {
 			session.removeAttribute("loginUser");
 			session.setAttribute("alertMsg", "회원 탈퇴 성공");
 			return "redirect:/";

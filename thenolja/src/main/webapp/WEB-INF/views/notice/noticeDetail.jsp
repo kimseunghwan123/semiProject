@@ -104,6 +104,12 @@
 		   <td class="detail_content-area">${noticeOne.noticeContent}</td>  
 	    </tr>
 	
+	
+		<!-- 첨부파일 로그인하지않은 회원에게 보여지는영역 -->
+	
+	
+	
+	
 	</table>
 	<div class="btn-wrap">
 		<input type="button" id="detail-golist" class="btn btn-light"   value="목록으로 이동" onclick="history.back();"/>

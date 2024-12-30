@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
    #login-form{
 		background-color: cyan;
@@ -32,26 +35,20 @@
  	<script type="text/javascript">
  	
  	
- 	function loginmember(){
- 		debugger
- 		$("#loginmem").val($(""));
-		alert("로그인이 되었습니다.");
-		
- 		
- 	}
  	
  	
  	
  	
  	
  	</script>
- 	<form id="loginUser"  action="login.member" method="post">
+ 	
+ 	
+ 	<form id="loginForm"  action="login.member" method="post">
 	<table id="login-form">
 		<table align="center">
 			<tr>
-				<th>아이디</th>
+				<th>아이디88u989s</th>
 				<th><input type="text" name="memId" id="id" required /></th>
-				<td>${member.memId}</td>
 			</tr>
 			<tr>
 				<td class="space" colspan="2">
@@ -67,7 +64,6 @@
 			<tr>
 				<th>비밀번호</th>
 				<th><input type="password" name="memPwd" id="password" required /></th>
-				<td>${member.memPwd}</td>
 			</tr>
 			<tr>
 				<td class="space" colspan="2">
@@ -82,14 +78,16 @@
 				<td>
 			<tr>
 			<tr>
+				
 				<th colspan="2" style="margin: 0 auto;" style="text-align: center;">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="submit" class="btn btn-sm btn-primary"id="loginmem" onchange="loginmember();">로그인</button>
+					<button type="submit" class="btn btn-sm btn-primary" id="loginForm" name="login()">로그인</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="button" class="btn btn-sm btn-secondary"
 						onclick="enrollForm.member">회원가입</button>
 					<!--  <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>-->
 				</th>
+			
 			</tr>
 		</table>
 
