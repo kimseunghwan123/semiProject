@@ -18,15 +18,17 @@ public class Member {
 	//JOIN_DATE	DATE				가입일
 	
 	private int memNo;
+	private String memName;
+	private String memPhone;
 	private String memId;
 	private String memPwd;
 	private String nickName;
-	private Date bornDate;
+	private String bornDate;
 	private  String Email;
-	private Date deleteYn;
+	private String deleteYn;
 	private Date joinDate;
-	
-	
+	private String memStatus;
+
 	
 	
 }

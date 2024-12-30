@@ -8,6 +8,9 @@
   <resultMap id="memberResultSet" type="member">
 
 	<result column="MEM_NO"     		property="memNo"/>
+	<result column="MEM_NAME"           property="memName"/>
+	<result column="MEM_PHONE"          property="memPhone"/>
+	<result column="MEM_STATUS"			property="memStatus"/>
 	<result column="MEM_ID"  			property="memId"/>
 	<result column="MEM_PWD" 			property="memPwd"/>
 	<result column="NICKNAME"  			property="nickName"/>
@@ -106,9 +109,9 @@
 				       SYSDATE <!-- 가입일 -->
 				       )
 				SELECT
-				       *
-				  FROM
-				       DUAL
+		       				*
+		  			FROM
+		       				DUAL
 		</insert>	       
   
   

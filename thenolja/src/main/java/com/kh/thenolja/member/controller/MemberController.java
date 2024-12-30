@@ -121,6 +121,77 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	
+	
+	/*
+	 * 아이디 중복 체크
+	 * 
+	 * 
+	 * */
+	@RequestMapping("idCheck.do")
+		public ModelAndView idCheck(Member member,ModelAndView mv, HttpSession session ) {
+		System.out.println("아이디 중복 체크 controller 잘나온다");		
+		
+		if(memberService.idCheck(member) > 0) {
+			session.setAttribute("idCheck()", "아이디 중복체크 성공" );
+			mv.setViewName("redirect:/");
+		} else {
+			mv.addObject("errorMsg", "중복체크 실패했습니다.").setViewName("common/errorPage");
+		}
+		return mv;
+		}
+	
+	
+	
+	
+	/*
+	 *	비밀번호 중복체크 
+	 * 
+	 * 
+	 * */
+	
+	
+	/*
+	 * 닉네임 중복체크	
+	 * 
+	 * 
+	 * */
+	@RequestMapping("nickNameCheck.do")
+	public ModelAndView nickNameCheck(Member member, ModelAndView mv, HttpSession session ) {
+		System.out.println("닉네임 중복 체크 controller 잘나온다");
+		
+		if(memberService.nickNameCheck(member) > 0) {
+			session.setAttribute("nickNameCheck()", "닉네임 중복체크 성공");
+		}else {
+			mv.addObject("errorMsg", "중복체크 실패했습니다.").setViewName("common/errorPage");
+		}
+		
+		return mv;
+	}
+	
+	
+	
+	/*
+	 * 이메일 중복체크	
+	 * 
+	 * 
+	 * */
+	
+	@RequestMapping("emailCheck.do")
+	public ModelAndView emailCheck(Member member, ModelAndView mv, HttpSession session) {
+		System.out.println("이메일 중복체크 controller 잘나온다");
+		
+		if(memberService.emailCheck(member) > 0) {
+			session.setAttribute("emailCheck()", "이메일 중복체크 성공");
+		}else {
+			mv.addObject("errorMsg", "중복체크 실패했습니다.").setViewName("common/errorPage");
+		}
+		
+		
+		return mv;
+	}
+	
 	/****
 	 * 삭제
 	 * @param userPwd
