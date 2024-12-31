@@ -47,6 +47,17 @@
 	    
 </select>
 
+<!-- 쿠폰 총데이터 수 -->
+<select id="selectListCount" resultMap="couponResultSet">
+		SELECT
+		      	 	  COUNT(*)
+		  		  FROM
+		      		  TB_COUPON
+
+
+</select>
+
+
 
 
 

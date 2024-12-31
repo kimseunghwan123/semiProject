@@ -42,6 +42,16 @@ public class CouponController {
 	//model.addAttribute("pageInfo",pi);
 	
 	return "coupon/couponList";  
+	
 	}
-		
-	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+}

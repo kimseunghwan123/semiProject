@@ -16,11 +16,10 @@ public class CouponRepository {
 			return sqlSession.selectOne("couponMapper.selectListCount");
 		}	
 	// 쿠폰 목록 조회
-	public List<Coupon>selectCouponlist(SqlSessionTemplate sqlSession){
-		System.out.println("[NoticeRepository rowBounds] ");
-		return sqlSession.selectList("couponMapper.selectCouponlist");
+		public List<Coupon>selectCouponlist(SqlSessionTemplate sqlSession){
+			System.out.println("[NoticeRepository rowBounds] ");
+			return sqlSession.selectList("couponMapper.selectCouponlist");
 	}
-	
 	
 	
 	
