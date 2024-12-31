@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="com.kh.thenolja.notice.model.vo.Notice"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-<fullyQualifiedTypeName name="lombok.Data"/>
 <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 <fullyQualifiedTypeName name="com.kh.thenolja.member.model.dao.MemberRepository"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -37,4 +36,5 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.kh.thenolja.member.model.vo.Member"/>
+<fullyQualifiedTypeName name="lombok.Data"/>
 </qualifiedTypeNameHistroy>

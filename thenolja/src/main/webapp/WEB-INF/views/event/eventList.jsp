@@ -232,13 +232,40 @@
                             <td>${ event.eventEndDt }</td>
                             <td>${ event.eventYN }</td>
                             <td>${ event.eventImg }</td>
-                            <td>${ writerNo }</td>
-                            <td>${ createDate }</td>
+                            <td>${ event.writerNo }</td>
+                            <td>${ event.createDate }</td>
                         </tr>
            </c:forEach>
 		</tbody>
 	</table>
-	
+	   <div id="pagingArea">
+                <ul class="pagination">
+                    
+                   <c:choose>
+                    
+                   	 <c:when test="${ pageInfo.currentPage eq 1}">
+                        <li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
+                     </c:when>
+                     
+                   <c:otherwise>
+                   		<li><a class="page-link" href="list.board?page=${pageInfo.currentPage - 1} ">이전</a></li>	
+                   		<li class="page-item"><a class="page-link" href="#">1</a></li>
+ 						<li class="page-item"><a class="page-link" href="#">2</a></li>
+  						<li class="page-item"><a class="page-link" href="#">3</a></li>
+                   </c:otherwise>
+                   
+                  </c:choose>
+                  
+                   <c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" var="p">
+                   
+                      <li class="page-item"><a class="page-link" href="list.board?page=${p}">${p}</a></li>
+                      
+                    </c:forEach>
+                   
+                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                
+                </ul>
+            </div>	
 <script>
 	// loginId null 체크
 	// 수정화면 진입 (관리자전용URL)

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="couponMapper">
+
+
+<resultMap id="couponResultSet" type="coupon">
+
+	<result column="COUPON_NO"     		property="noticeNo"/>
+	<result column="COUPON_CONTENT"  		property="noticeTitle"/>
+	<result column="COUPON_DATE" 	property="noticeContent"/>
+	<result column="COUPON_YN"  		property="createDate"/>
+	<result column="COUPON_CATE_CD"  			property="status"/>
+	<result column="COUPON_CATE_NM"  		property="writerNo"/>
+	<result column="COUPON_CODE"  			property="writer"/>
+	<result column="COUPON_PERCENT"     	property="couponPercent"/>
+	<result column="WRITER"     		property="writerNo"/>
+	<result column="WRITER_NO"     		property="writerNo"/>
+	<result column="CREATE_DATE"     		property="createDate"/>
+	
+	
+</resultMap>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

@@ -12,6 +12,7 @@
 	<typeAliases>
 			<typeAlias type="com.kh.thenolja.notice.model.vo.Notice"   alias="notice"/>
 			<typeAlias type="com.kh.thenolja.event.model.vo.Event"   alias="event"/>
+			<typeAlias type="com.kh.thenolja.coupon.model.vo.Coupon" alias="coupon"/>
 			<typeAlias type="com.kh.thenolja.member.model.vo.Member" alias="member"/>
 	</typeAliases>
 		<!-- 주의할 점! : 별칭등록 하기 위핵서는 반드시 해당 클래스가 진짜 만들어져 있어야함 -->
@@ -19,6 +20,7 @@
 	<mappers>
 		<mapper resource="/mapper/notice-mapper.xml"/>
 		<mapper resource="/mapper/event-mapper.xml"/>
+		<mapper resource="/mapper/coupon-mapper.xml"/>
 		<mapper resource="/mapper/member-mapper.xml"/>
 	</mappers>
 	

@@ -330,13 +330,6 @@ function upload(){
 	
 }
 
- function deletfile(){
-	$("#fileReset").val($("file_110"));
-	alert("첨부파일이 삭제되었습니다.");
-	return;
-} 
-
-
 </script>
 
 </head>

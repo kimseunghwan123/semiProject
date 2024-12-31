@@ -1,0 +1,5 @@
+package com.kh.thenolja.coupon.model.dao;
+
+public class CouponRepository {
+
+}

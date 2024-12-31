@@ -1,0 +1,26 @@
+package com.kh.thenolja.coupon.model.service;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CouponServiceImpl implements CouponService {
+
+	
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	
+	@Autowired
+	private CouponRepository couponRepository;
+	
+	
+	
+	
+	
+	
+	
+	
+}

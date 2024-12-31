@@ -152,12 +152,13 @@ $(function(){
 });
 
 
-<!-- SELECT PROFILE PATH-->
+
 
 $(function(){
     $.ajax({
+    type: "POST",
     url: 'selectProfile',
-    data:{memNo : ${ sessionScope.loginUser.memNo }},
+    data:{memNo : ${ sessionScope.loginMember.memNo }},
     success: function(result){
        // console.log(typeof(result));
 		let resultStr;
@@ -176,7 +177,6 @@ $(function(){
 });
 
 
-<!-- load img-->
 
 function loadImg(inputFile){
    // console.log(inputFile.files);
@@ -213,10 +213,7 @@ alert("정보를 수정하시겠습니까?");
 	<jsp:include page="../common/header.jsp" />
 
 
-	<form id="enroll-form" method="post" action="update.member">
-		<table align="center">
-	
-	 <div id="wrap">
+	  <div id="wrap">
     	<div id="content">
 	        <div id="content1" class="content" style="height: 100px;">
 	            <div id="ct1_1">
@@ -227,9 +224,7 @@ alert("정보를 수정하시겠습니까?");
 	            <div id="ct1_4">
 	            </div>
 	        </div>
-	        
-	        
-	         <div id="content2" class="content">
+	        <div id="content2" class="content">
 	            <div id="ct2_1">
 	                
 	                <form action="insertProfile?memNo=${ sessionScope.loginMember.memNo }" enctype="multipart/form-data" method="post" id="insertform">
@@ -239,10 +234,13 @@ alert("정보를 수정하시겠습니까?");
 	                    <input id="profileChange" type="file" name="upfile" onchange="loadImg(this);">
 	
 	                    <input id="save" type="submit" value="저장">
-	        
-	        
-	         <div id="ct2_2">
-	                <div id="name">${ sessionScope.loginMember.memName }님</div>
+	
+	                </form>
+					
+	
+	            </div>
+	            <div id="ct2_2">
+	                <div id="name">${ sessionScope.loginMember.nickName }님</div>
 	            </div>
 	            <div id="ct2_3">
 	                <div id="gradeIcon">
@@ -281,9 +279,7 @@ alert("정보를 수정하시겠습니까?");
 	                </c:choose>
 	                
 	                </div>
-	                
-	                
-	                 <div id="gradeInfo">
+	                <div id="gradeInfo">
 	                    <p>
 	                        <br><span style="font-weight: bold;">등급표</span><br><br>
 	                        <span style="color: plum; border-bottom: 1px solid plum;">VVIP</span>
@@ -294,9 +290,13 @@ alert("정보를 수정하시겠습니까?");
 	                    </p>
 	                </div>
 	            </div>
-	                
-	                
-	               <!-- 회원탈퇴 모달 -->
+	
+	            <div id="ct2_4">
+	                <button type="button" id="update" onclick="location.href='/update.ck'">정보수정</button>
+	                <button type="button" data-toggle="modal" data-target="#deleteForm">회원탈퇴</button>
+	            </div>
+	        </div>
+	        <!-- 회원탈퇴 모달 -->
 		<div class="modal" id="deleteForm">
 			<div class="modal-dialog">
 		 		<div class="modal-content">
@@ -309,7 +309,7 @@ alert("정보를 수정하시겠습니까?");
 				
 				<!-- Modal body -->
 				<div class="modal-body">
-				<form action="/delete.me" method="post">
+				<form action="delete.me" method="post">
 				
 				<div class="form-group">
 				   	<label for="memPwd" style="font-size:20px; color:orangered">회원탈퇴시 회원혜택을 이용할 수 없습니다.</label><br>
@@ -336,7 +336,7 @@ alert("정보를 수정하시겠습니까?");
 	            
 	            <div class="icon"><div class="iconImg"><a href="/myReser.list?reMemNo=${ sessionScope.loginMember.memNo }"><div style="width: 80%;margin: auto;"><img class="img1" src="./resources/mypage/reservation.png" alt="예약내역"></div><span>예약내역</span></a></div></div>
 	            <div class="icon"><div class="iconImg"><a href="#"><div style="width: 80%;margin: auto;"><img class="img1" src="./resources/mypage/action.png" alt="이용내역"></div><span>이용내역</span></a></div></div>
-	            <div class="icon"><div class="iconImg"><a href="/noticeList?currentPage=1"><div style="width: 80%;margin: auto;"><img class="img1" src="./resources/mypage/bell.png" alt="공지사항"></div><span>공지사항</span></a></div></div>
+	            <div class="icon"><div class="iconImg"><a href="noticeList?currentPage=1"><div style="width: 80%;margin: auto;"><img class="img1" src="./resources/mypage/bell.png" alt="공지사항"></div><span>공지사항</span></a></div></div>
 	            <div class="icon"><div class="iconImg"><a href="/mypage.qna"><div style="width: 50%;margin: auto;"><img class="img1" src="./resources/mypage/question.png" alt="자주 묻는 질문"></div><span>자주 묻는 질문</span></a></div></div>
 	            
 	        </div>
@@ -344,53 +344,7 @@ alert("정보를 수정하시겠습니까?");
 
     	</div>
 		<%@ include file="../common/footer.jsp" %>
-    </div>   
-	        
-			<tr>
-				<td>* 아이디</td>
-				<td><input type="text" readonly maxlength="12" value="${Member.memId }" required
-					name="memId"></td>
-			<tr>
-				<td>* 비밀번호</td>
-				<td><input type="password" maxlength="15" value="${Member.memPwd }" required
-					name="memPwd"></td>
-			</tr>
-			
-			<tr>
-				<td>* 비밀번호확인</td>
-				<td><input type="password" maxlength="15"  value="${Member.memPwd }" required></td>
-			</tr>
-			
-			<tr>
-				<td>* 닉네임</td>
-				<td><input type="text" maxlength="5" value="${Member.nickName }"required name="nickName"></td>
-			</tr>
-			
-			<tr>
-				<td>* 태어난날</td>
-				<td><input type="text" maxlength="5" value="${Member.bornDate}"required name="bornDate"></td>
-			</tr>
-			
-			<tr>
-				<td>* 이메일</td>
-				<td><input type="text" value="${Member.Email}" required name="Email"></td>
-			</tr>
-			<tr>
-
-		</table>
-
-		<div align="center">
-			<button type="reset" class="btn btn-sm btn-secondary">취소</button>
-			<button type="submit" onclick="showAlert()"
-				class="btn btn-sm btn-primary">정보수정</button>
-		</div>
-  		
-  		<div id="ct2_4">
-	                <button type="button" id="update" onclick="location.href='/update.ck'">정보수정</button>
-	                <button type="button" data-toggle="modal" data-target="#deleteForm">회원탈퇴</button>
-	     </div>
-	   </div>
-	</form>
+    </div>
 
 	
 	

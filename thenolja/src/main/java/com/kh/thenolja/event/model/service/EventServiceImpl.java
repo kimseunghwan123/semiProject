@@ -37,10 +37,10 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public int regEvent(Event et) {
 		
-		int regCnt = 0;
-		regCnt = eventRepository.regEventInfo(sqlSession, et);
-		System.out.println(regCnt);
-		return regCnt;
+		int regEnt = 0;
+		regEnt = eventRepository.regEventInfo(sqlSession, et);
+		System.out.println(regEnt);
+		return regEnt;
 	}
 	
 	
@@ -54,7 +54,7 @@ public class EventServiceImpl implements EventService {
 		
 		// 상세페이지 조회인 경우에만 viewCount 증가 시켜줘야 함
 		if("N".equals(flag)) {
-			int vwCountCnt = 0;
+			int vwCountEnt = 0;
 			// viewCount 증가
 		//	vwCountCnt = this.increaseViewCount(etsNo);
 		}
@@ -67,19 +67,19 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public int updEvent(Event et) {
 		
-		int updCet = 0;
-		updCet = eventRepository.updEventInfo(sqlSession, et);
-		System.out.println(updCet);
-		return updCet;
+		int updEet = 0;
+		updEet = eventRepository.updEventInfo(sqlSession, et);
+		System.out.println(updEet);
+		return updEet;
 	}
 	//이벤트 삭제
 	@Override
 	public int delInfo(Event et) {
 		
-		int delCet = 0;
-		delCet = eventRepository.delEventInfo(sqlSession, et);
-		System.out.println(delCet);
-		return delCet;
+		int delEet = 0;
+		delEet = eventRepository.delEventInfo(sqlSession, et);
+		System.out.println(delEet);
+		return delEet;
 	}
 	
 	

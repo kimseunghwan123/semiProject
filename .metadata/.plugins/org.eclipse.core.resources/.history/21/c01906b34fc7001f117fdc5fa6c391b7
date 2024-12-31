@@ -1,0 +1,12 @@
+package com.kh.thenolja.coupon.model.service;
+
+public interface CouponService {
+
+	
+	
+	List<Coupon>selectCouponlist();
+	
+	
+	
+	
+}

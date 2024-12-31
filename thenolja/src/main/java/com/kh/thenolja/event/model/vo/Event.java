@@ -20,7 +20,7 @@ public class Event {
 	private String eventImg;		// 이벤트 이미지  첨부파일
 	private int writerNo;			// 작성자 관리번호
 	private String writer; 	   		// 상세화면 조회 시 작성자명
-	private String createDt;		// 등록일
+	private String createDate;		// 등록일
 	
 	
 	

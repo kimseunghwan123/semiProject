@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,13 +180,14 @@ function regEvent(){
 
 	var inptTitle   = $('#title').val();
 	var inptContent = $('#txtArea_content').val();
-	var chkStatus   = $('input[name="status"]:checked').val();
+	var chkeventYN   = $('input[name="eventYN"]:checked').val();
 	var inptEventStrtDt = $('#eventStrt').val();
 	var inptEventEndDt  = $('#eventEnd').val();
+	var inputEventImg = $('#eventImg').val();
 	
 	console.log("inptTitle " + inptTitle);
 	console.log("inptContent " + inptContent);
-	console.log("chkStatus " + chkStatus);
+	console.log("chkeventYN " + chkeventYN);
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
 
@@ -204,10 +204,9 @@ function regEvent(){
 			url : "event.regInfo",
 			data : formDoc,
 			success:function(res){
-				
 				if(res == "SUCCESS"){
 					alert("이벤트가 정상적으로 등록되었습니다.");
-					location.href="event.list?currentPage=1"
+					location.href="event.list";
 				}else{
 					alert("이벤트 등록 중 오류가 발생하였습니다.");
 					return;
@@ -245,7 +244,7 @@ function validation(){
 		return;
 	}
 	// 라디오버튼 (게시여부) 체크여부 확인
-	if( !$('input[name="status"]').is(':checked') ){
+	if( !$('input[name="eventYN"]').is(':checked') ){
 		alert("이벤트 진행상태를 선택해주세요.");
 		return;
 	}
@@ -340,12 +339,6 @@ function upload(){
 	
 	
 }
-
- function deletfile(){
-	$("#fileReset").val($("file_110"));
-	alert("첨부파일이 삭제되었습니다.");
-	return;
-} 
 	
 	
 	
@@ -380,12 +373,12 @@ function upload(){
 				<td>
 					<div class="radio-btn-wrap" id="event_rdo_wrap">
 						<span class="radio-btn">
-							<input type="radio" id="rdo_statusY" name="status" checked="" value="Y">	
+							<input type="radio" id="rdo_statusY" name="eventYN" checked="" value="Y">	
 								<label for="rdo_statusY">진행</label>
 						</span>
 								
 						<span class="radio-btn">	
-							<input type="radio" id="rdo_statusN" name="status" value="N">	
+							<input type="radio" id="rdo_statusN" name="eventYN" value="N">	
 								<label for="rdo_statusN">종료</label>
 						</span>
 					</div>
@@ -439,7 +432,7 @@ function upload(){
 		</tr>
 		<!-- 이벤트 시작일, 종료일 전체영역 END -->   
 			
-       <!-- 첨부파일 전체영역 START -->         
+    <!-- 첨부파일 전체영역 START -->         
 		<tr data-attr_seq="194" data-attr_disp_form_cd="FD" data-attr_calc_typ_cd="null" data-attr_mndt_inpt_yn="Y">	
 			<th><span>첨부파일</span></th>	
 			
@@ -452,7 +445,7 @@ function upload(){
 					<!-- 업로드 영역 START -->
 					<div class="upload-box">    
 						<input type="text" id="fileName_110" name="eventImg" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
-						<button type="button" id="fileReset" class="btn-reset" onclick="deletfile();"><span class="blind">삭제</span></button>	
+						<button type="button" id="fileReset" class="btn-reset"><span class="blind">삭제</span></button>	
 					</div>
 					<!-- 업로드 영역 END -->
 				</div>
@@ -462,7 +455,7 @@ function upload(){
 					</ul>	
 			</td>
 		</tr> 
-		<!-- 첨부파일 전체영역 END -->                 
+		<!-- 첨부파일 전체영역 END -->                
   		
  <!-- 
  		<h6>이벤트 등록정보</h6>
@@ -471,7 +464,7 @@ function upload(){
 		이벤트기간 :  -->
 		
 		<tr>
-			<td colspan="2" id="">
+			<td colspan="2">
 			<input type="button" id="save"    class="btn btn-primary" value="등록" onclick="regEvent();">
 			<input type="button" id="cancel" class="btn btn-primary" value="취소" onclick="history.back();">
 			</td>
