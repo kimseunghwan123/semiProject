@@ -177,19 +177,19 @@ $(document).ready(function(){
 * 함수설명 : 등록버튼 클릭 이벤트
 *************************/ 
 function regEvent(){
-
 	var inptTitle   = $('#title').val();
 	var inptContent = $('#txtArea_content').val();
 	var chkeventYN   = $('input[name="eventYN"]:checked').val();
 	var inptEventStrtDt = $('#eventStrt').val();
 	var inptEventEndDt  = $('#eventEnd').val();
-	var inputEventImg = $('#eventImg').val();
+	
 	
 	console.log("inptTitle " + inptTitle);
 	console.log("inptContent " + inptContent);
 	console.log("chkeventYN " + chkeventYN);
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
+	
 
 	//유효성 검사 함수 호출
 	if(validation()){
@@ -204,13 +204,9 @@ function regEvent(){
 			url : "event.regInfo",
 			data : formDoc,
 			success:function(res){
-				if(res == "SUCCESS"){
 					alert("이벤트가 정상적으로 등록되었습니다.");
 					location.href="event.list";
-				}else{
-					alert("이벤트 등록 중 오류가 발생하였습니다.");
-					return;
-				}
+			
 				},
 				error:function(e){
 					alert("이벤트 등록 중 오류가 발생하였습니다.");

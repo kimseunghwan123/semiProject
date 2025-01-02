@@ -13,7 +13,7 @@
 	<result column="STATUS"  			property="status"/>
 	<result column="WRITER_NO"  		property="writerNo"/>
 	<result column="WRITER"  			property="writer"/>
-	<result column="VIEW_COUNT"     	property="viewCount"/>
+	<result column="VIEW_COUNT"  		property="viewCount"/>
 	<result column="FILE_PATH"     		property="filePath"/>
 	
 	

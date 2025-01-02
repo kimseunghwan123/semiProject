@@ -1,14 +1,9 @@
 package com.kh.thenolja.event.model.vo;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+
+@Data
 public class Event {
 
 	private int eventNo;			// 이벤트 관리번호
@@ -21,6 +16,7 @@ public class Event {
 	private int writerNo;			// 작성자 관리번호
 	private String writer; 	   		// 상세화면 조회 시 작성자명
 	private String createDate;		// 등록일
+	private String flag;
 	
 	
 	

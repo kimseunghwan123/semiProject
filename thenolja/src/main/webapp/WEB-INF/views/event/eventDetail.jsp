@@ -124,11 +124,10 @@ img {
 	<br>
 	
 	<br>
-	<table id="detail-area">
-
-		<div class="outer">
+		
 <div id="content_1">
 
+</div>
 
 	<table id="detail-area">
         <div id="contentHeader"><h2 align="left">이벤트</h2></div>
@@ -136,8 +135,8 @@ img {
         <hr>
 		<!-- 타이틀 영역 -->
 	    <tr id="detail_title-area">
-	         <td class="detail_title_name_td">${evnet.EventContent}</td>
-	         <td class="detail_date">이벤트 기간 : ${ event.EventStrtDt } ~ ${ event.EventEndDt}</td>	
+	         <td class="detail_title_name_td">${eventOne.eventContent}</td>
+	         <td class="detail_date">이벤트 기간 : ${ eventOne.eventStrtDt } ~ ${ eventOne.eventEndDt}</td>	
 	    </tr>
 	    <!-- 컨텐츠영역 -->		
 	</table>
@@ -155,8 +154,8 @@ img {
 	<br>
 	<br><br>
 
-</div>
 
+</div>
 
 
 

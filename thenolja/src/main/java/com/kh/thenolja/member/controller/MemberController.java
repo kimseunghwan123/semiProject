@@ -202,9 +202,9 @@ public class MemberController {
 	public String delete(String userPwd, HttpSession session) {
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		if ( loginMember != null) {
-			session.removeAttribute("loginUser");
+			session.removeAttribute("loginMember");
 			session.setAttribute("alertMsg", "회원 탈퇴 성공");
-			return "redirect:/";
+			return "redirect:index.jsp";
 		} else {
 			session.setAttribute("alertMsg", "회원 탈퇴 실패..");
 			return "redirect:mypage.member";

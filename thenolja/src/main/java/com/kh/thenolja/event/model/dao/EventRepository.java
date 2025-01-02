@@ -12,8 +12,14 @@ import com.kh.thenolja.notice.model.vo.Notice;
 public class EventRepository {
 
 	
+	// 게시글 전체 리스트 카운트 조회
+		public int selectListCount(SqlSessionTemplate sqlSession) {
+			return sqlSession.selectOne("eventMapper.selectListCount");
+		}	
+	
 	// 이벤트 목록 조회 페이지
 	public List<Event>selectEventlist(SqlSessionTemplate sqlSession){
+		System.out.println("[NoticeRepository selectEventlist ");
 //		System.out.println("[NoticeRepository rowBounds] " + rowBounds.getOffset());
 //		System.out.println("[NoticeRepository rowBounds] " + rowBounds.getLimit());
 		return sqlSession.selectList("eventMapper.selectEventlist");
@@ -28,6 +34,13 @@ public class EventRepository {
 			System.out.println("[EventRepository selectEventOne] " + etsNo);
 			return sqlSession.selectOne("eventMapper.selectEventOne", etsNo);
 		}
+		
+		// 공지사항 상세조회 시 조회수 증가
+		public int increaseViewCount(SqlSessionTemplate sqlSession, int ntsNo) {
+			System.out.println("[EventRepository increaseViewCount] " + ntsNo);
+			return sqlSession.insert("eventMapper.increaseViewCount", ntsNo);
+		}	
+		
 		// 이벤트 수정
 		public int updEventInfo(SqlSessionTemplate sqlSession, Event et) {
 			System.out.println("[EventRepository updEventInfo Vo] " + et);

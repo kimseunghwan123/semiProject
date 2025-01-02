@@ -21,15 +21,30 @@ public class EventServiceImpl implements EventService {
 	@Autowired
 	public EventRepository eventRepository;
 	
-	//목록조회 페이지
+	
+	
+	// 페이징 처리
+		@Override
+		public int selectListCount() {
+			int listCount = 0;
+			listCount = eventRepository.selectListCount(sqlSession);
+			System.out.println("[NoticeServiceImpl listCount] " + listCount);
+			return listCount;
+		}
+	
+	
+	//이벤트 목록조회 페이지
 	@Override
 	public List<Event>selectEventlist(){
 		System.out.println("[EventServiceImpl selectEventlist]");
 	
 		List<Event> list = eventRepository.selectEventlist(sqlSession);
 		System.out.println("[EventServiceImpl list결과] ");
-	
-	return list;
+		
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return list;
 	
 	}
 	
@@ -56,13 +71,23 @@ public class EventServiceImpl implements EventService {
 		if("N".equals(flag)) {
 			int vwCountEnt = 0;
 			// viewCount 증가
-		//	vwCountCnt = this.increaseViewCount(etsNo);
+			vwCountEnt = this.increaseViewCount(etsNo);
 		}
 		
-	//	ets = eventRepository.selectEventOne(sqlSession, etsNo);
+		ets = eventRepository.selectEventOne(sqlSession, etsNo);
 		System.out.println(ets);
 		return ets;
 	}
+	
+	// 공지사항 접속시 조회 수 증가 기능
+		@Override
+		public int increaseViewCount(int ntsNo) {
+			int updVwCount = 0;
+			updVwCount = eventRepository.increaseViewCount(sqlSession, ntsNo);
+			return updVwCount;
+		}
+	
+	
 	//이벤트 수정페이지
 	@Override
 	public int updEvent(Event et) {
