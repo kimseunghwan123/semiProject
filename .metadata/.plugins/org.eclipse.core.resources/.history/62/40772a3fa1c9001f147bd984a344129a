@@ -76,12 +76,6 @@
 					SYSDATE
 					)
 		</insert>
-		
-		
-		
-		
-		
-		
 	<!-- 이벤트 상세조회 페이지 쿼리문-->
 	<select id="selectEventOne" parameterType="_int" resultMap="eventResultSet">
    		SELECT
@@ -89,15 +83,15 @@
                 EVENT_TITLE,        /* 이벤트 제목 */
                 EVENT_CONTENT,      /* 이벤트 내용 */
                 EVENT_YN,			/* 이벤트 진행여부 */
+                EVENT_IMG,	
                 TO_CHAR(EVENT_STRT_DT,'YYYY-MM-DD') AS EVENT_STRT_DT,      /* 이벤트 시작일 */
                 TO_CHAR(EVENT_END_DT ,'YYYY-MM-DD') AS EVENT_END_DT,       /* 이벤트 종료일 */
                 (SELECT NICKNAME FROM TB_MEMBER
                                  WHERE WRITER_NO = MEM_NO
                                  AND ROWNUM = 1) AS WRITER,    			  /* 작성자명 */
-                TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE ,        /* 이벤트 등록일 */                                 
-         		EVENT_IMG
+                TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE         /* 이벤트 등록일 */                                 
          	
-         			 FROM TB_EVENT
+         	 FROM TB_EVENT
                
            WHERE  1=1 
              <if test="noticeNo != null and !noticeNo.equals('')">
@@ -113,8 +107,8 @@
              EVENT_YN 		= #{eventYN},
              EVENT_STRT_DT 	= #{eventStrtDt},
              EVENT_END_DT 	= #{eventEndDt},
-             WRITER_NO 		= #{writerNo},
              EVENT_IMG 		= #{eventImg},
+             WRITER_NO 		= #{writerNo},
              
       WHERE  1=1
      <if test="eventNo != null and ! eventNo.squals('')">

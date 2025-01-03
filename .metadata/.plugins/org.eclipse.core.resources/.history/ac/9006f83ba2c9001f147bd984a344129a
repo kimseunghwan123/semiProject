@@ -181,7 +181,7 @@ function updEvent(eventStatus){
 	var inptEventEndDt  = $('#eventEnd').val();
 	var writerNo = 1;
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
-	var eventImg = $('#fileName_110').val();
+	var eventImgPath = $('#fileName_110').val();
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
 	

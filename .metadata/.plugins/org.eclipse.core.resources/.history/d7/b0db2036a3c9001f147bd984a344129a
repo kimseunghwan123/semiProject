@@ -113,8 +113,8 @@
              EVENT_YN 		= #{eventYN},
              EVENT_STRT_DT 	= #{eventStrtDt},
              EVENT_END_DT 	= #{eventEndDt},
-             WRITER_NO 		= #{writerNo},
              EVENT_IMG 		= #{eventImg},
+             WRITER_NO 		= #{writerNo},
              
       WHERE  1=1
      <if test="eventNo != null and ! eventNo.squals('')">

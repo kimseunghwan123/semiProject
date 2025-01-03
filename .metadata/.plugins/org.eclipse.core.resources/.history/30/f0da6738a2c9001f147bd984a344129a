@@ -181,7 +181,7 @@ function updEvent(eventStatus){
 	var inptEventEndDt  = $('#eventEnd').val();
 	var writerNo = 1;
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
-	var eventImg = $('#fileName_110').val();
+	var eventImgPath = $('#fileName_110').val();
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
 	
@@ -207,7 +207,7 @@ function updEvent(eventStatus){
 			mappingUrl  = "evnet.updInfo";
 			dataObj 	= {eventTitle : inptTitle, eventContent : inptContent, eventYN : chkStatus, 
 						   eventStrtDt : inptEventStrtDt, eventEndDt : inptEventEndDt,	      
-						   eventImg : eventImg, eventNo : eventNo, writerNo : writerNo}
+						   eventImg : eventImgPath, eventNo : eventNo, writerNo : writerNo}
 			rsltMsg     = "게시글이 정상적으로 수정되었습니다.";
 		}
 		if(eventStatus == "DEL"){

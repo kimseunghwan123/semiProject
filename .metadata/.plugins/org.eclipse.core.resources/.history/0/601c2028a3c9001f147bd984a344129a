@@ -95,9 +95,8 @@
                                  WHERE WRITER_NO = MEM_NO
                                  AND ROWNUM = 1) AS WRITER,    			  /* 작성자명 */
                 TO_CHAR(CREATE_DATE,'YYYY.MM.DD') AS CREATE_DATE ,        /* 이벤트 등록일 */                                 
-         		EVENT_IMG
-         	
-         			 FROM TB_EVENT
+         	EVENT_IMG
+         	 FROM TB_EVENT
                
            WHERE  1=1 
              <if test="noticeNo != null and !noticeNo.equals('')">
@@ -113,8 +112,8 @@
              EVENT_YN 		= #{eventYN},
              EVENT_STRT_DT 	= #{eventStrtDt},
              EVENT_END_DT 	= #{eventEndDt},
-             WRITER_NO 		= #{writerNo},
              EVENT_IMG 		= #{eventImg},
+             WRITER_NO 		= #{writerNo},
              
       WHERE  1=1
      <if test="eventNo != null and ! eventNo.squals('')">

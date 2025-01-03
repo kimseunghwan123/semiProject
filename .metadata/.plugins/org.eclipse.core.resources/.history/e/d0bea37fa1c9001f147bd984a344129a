@@ -181,7 +181,7 @@ function updEvent(eventStatus){
 	var inptEventEndDt  = $('#eventEnd').val();
 	var writerNo = 1;
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
-	var eventImg = $('#fileName_110').val();
+	var eventImgPath = $('#fileName_110').val();
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
 	
@@ -207,7 +207,7 @@ function updEvent(eventStatus){
 			mappingUrl  = "evnet.updInfo";
 			dataObj 	= {eventTitle : inptTitle, eventContent : inptContent, eventYN : chkStatus, 
 						   eventStrtDt : inptEventStrtDt, eventEndDt : inptEventEndDt,	      
-						   eventImg : eventImg, eventNo : eventNo, writerNo : writerNo}
+						   eventImg : eventImgPath, eventNo : eventNo, writerNo : writerNo}
 			rsltMsg     = "게시글이 정상적으로 수정되었습니다.";
 		}
 		if(eventStatus == "DEL"){
@@ -497,7 +497,7 @@ function upload(){
 					
 					<!-- 업로드 영역 START -->
 					<div class="upload-box">    
-						<input type="text" id="fileName_110" name="eventImg" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
+						<input type="text" id="fileName_110" name="filePath" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
 						<button type="button" id="fileReset" class="btn-reset"><span class="blind">삭제</span></button>	
 					</div>
 					<!-- 업로드 영역 END -->
