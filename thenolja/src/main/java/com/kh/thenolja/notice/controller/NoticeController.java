@@ -103,8 +103,7 @@ public class NoticeController {
 	
 	
 	
-	
-	
+	/* 수정 되는데 첨부파일 부분 수정 보안 필요*/
 	/* 공지사항 수정하기 */
 	@RequestMapping("notice.updInfo")
 	public String noticeUpdInfo(Notice nt, Model model) {

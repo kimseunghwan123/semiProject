@@ -180,7 +180,7 @@ function updEvent(eventStatus){
 	var inptEventStrtDt = $('#eventStrt').val();
 	var inptEventEndDt  = $('#eventEnd').val();
 	var writerNo = 1;
-	var eventImgPath = "resources/img/TheNoleJa_Logo.png";
+	var eventImgPath = =$('#fileName_110').val();
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
 	
 	console.log("inptEventStrtDt " + inptEventStrtDt);

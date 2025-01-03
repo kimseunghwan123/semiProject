@@ -188,7 +188,7 @@ function updNotice(eventStatus){
 	var inptContent = $('#txtArea_content').val();
 	var chkStatus   = $('input[name="status"]:checked').val();
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
-	//var filePathImg =$('#filePath').val();
+	var filePathImg = $('#fileName_110').val();
 	if(typeof eventStatus != "undefined"){
 		if(eventStatus == "UPD") confirmMsg = "게시글을 수정하시겠습니까?";
 		if(eventStatus == "DEL") confirmMsg = "게시글을 삭제하시겠습니까?";
@@ -208,7 +208,7 @@ function updNotice(eventStatus){
 		// 수정, 삭제인 경우 각각 데이터 세팅
 		if(eventStatus == "UPD"){
 			mappingUrl  = "notice.updInfo";
-			dataObj 	= {noticeTitle : inptTitle, noticeContent : inptContent, status : chkStatus, noticeNo : noticeNo}
+			dataObj 	= {noticeTitle : inptTitle, noticeContent : inptContent, status : chkStatus, noticeNo : noticeNo, filePath : filePathImg}
 			rsltMsg     = "게시글이 정상적으로 수정되었습니다.";
 		}
 		if(eventStatus == "DEL"){
