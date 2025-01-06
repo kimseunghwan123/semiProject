@@ -92,19 +92,19 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public int updEvent(Event et) {
 		
-		int updEet = 0;
-		updEet = eventRepository.updEventInfo(sqlSession, et);
-		System.out.println(updEet);
-		return updEet;
+		int updEnt = 0;
+		updEnt = eventRepository.updEventInfo(sqlSession, et);
+		System.out.println(updEnt);
+		return updEnt;
 	}
 	//이벤트 삭제
 	@Override
 	public int delInfo(Event et) {
 		
-		int delEet = 0;
-		delEet = eventRepository.delEventInfo(sqlSession, et);
-		System.out.println(delEet);
-		return delEet;
+		int delEnt = 0;
+		delEnt = eventRepository.delEventInfo(sqlSession, et);
+		System.out.println(delEnt);
+		return delEnt;
 	}
 	
 	

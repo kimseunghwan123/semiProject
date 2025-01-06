@@ -54,6 +54,14 @@
      <!-- 등록 버튼 영역 END -->
      
 	<br><br>
+	
+	
+<!-- 비회원 "N"-->	
+	
+	
+	
+	
+<!-- 관리자"Y" -->
 	<table id="noticelist"	class="table table-hover">
 		<thead>
 			<tr>

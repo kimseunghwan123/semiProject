@@ -105,22 +105,22 @@
 			 </if>
 	</select>
 	
-	<!-- 이벤트 수정 쿼리문 -->
-	<insert id="updEvent" parameterType="event">
-		UPDATE TB_EVENT
+ <!-- 이벤트 수정 쿼리문 -->
+<insert id="updEvent" parameterType="event">
+	  UPDATE TB_EVENT
       SET    EVENT_TITLE 	= #{eventTitle},
           	 EVENT_CONTENT 	= #{eventContent},
              EVENT_YN 		= #{eventYN},
              EVENT_STRT_DT 	= #{eventStrtDt},
              EVENT_END_DT 	= #{eventEndDt},
              WRITER_NO 		= #{writerNo},
-             EVENT_IMG 		= #{eventImg},
-             
+             EVENT_IMG 		= #{eventImg}
       WHERE  1=1
-     <if test="eventNo != null and ! eventNo.squals('')">
-      AND    EVENT_NO = #{eventNo}	
+     <if test="eventNo != null and !eventNo.equals('')">
+      AND    
+      		EVENT_NO = #{eventNo}	
 	</if>
-	</insert>
+</insert>
 	
 	<!-- 이벤트 삭제 -->
 <delete id="delEvent" parameterType="event">

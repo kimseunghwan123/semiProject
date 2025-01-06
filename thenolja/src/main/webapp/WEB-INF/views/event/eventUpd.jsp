@@ -173,7 +173,7 @@ input[type="text"], input[type="password"] {
 *         수정 / 삭제인 경우 호출 URL 분리
 *****************************************************/
 function updEvent(eventStatus){
-	debugger
+	//debugger
 	var inptTitle   = $('#title').val();
 	var inptContent = $('#txtArea_content').val();
 	var chkStatus   = $('input[name="eventYN"]:checked').val();
@@ -181,7 +181,7 @@ function updEvent(eventStatus){
 	var inptEventEndDt  = $('#eventEnd').val();
 	var writerNo = 1;
 	var confirmMsg;	// 수정, 삭제 버튼 클릭 시 확인 메시지
-	var eventImg = $('#fileName_110').val();
+	var eventfileImg = $('#fileName_110').val();
 	console.log("inptEventStrtDt " + inptEventStrtDt);
 	console.log("inptEventEndDt "  + inptEventEndDt);
 	
@@ -204,14 +204,14 @@ function updEvent(eventStatus){
 
 		// 수정, 삭제인 경우 각각 데이터 세팅
 		if(eventStatus == "UPD"){
-			mappingUrl  = "evnet.updInfo";
+			mappingUrl  = "event.updInfo";
 			dataObj 	= {eventTitle : inptTitle, eventContent : inptContent, eventYN : chkStatus, 
 						   eventStrtDt : inptEventStrtDt, eventEndDt : inptEventEndDt,	      
-						   eventImg : eventImg, eventNo : eventNo, writerNo : writerNo}
+						   eventImg : eventfileImg, eventNo : eventNo, writerNo : writerNo}
 			rsltMsg     = "게시글이 정상적으로 수정되었습니다.";
 		}
 		if(eventStatus == "DEL"){
-			mappingUrl  = "evnet.delEvent";
+			mappingUrl  = "event.delInfo";
 			dataObj 	= {eventNo : eventNo}
 			rsltMsg     = "게시글이 정상적으로 삭제되었습니다.";
 		}		

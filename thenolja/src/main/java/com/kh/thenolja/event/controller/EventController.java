@@ -102,12 +102,12 @@ public class EventController {
 		System.out.println("[Eventcontroller eventUpdInfo]");
 		System.out.println(et);
 		
-		int updEet = 0;
+		int updEnt = 0;
 		// 이벤트 수정
-		updEet = eventSvc.updEvent(et);
-		System.out.println(updEet);
+		updEnt = eventSvc.updEvent(et);
+		System.out.println(updEnt);
 		
-		if(updEet > 0) {
+		if(updEnt > 0) {
 			model.addAttribute("res", "SUCCESS");
 			return "redirect:event.list";
 		}else {
@@ -122,12 +122,12 @@ public class EventController {
 		System.out.println("[Eventcontroller eventDelInfo]");
 		System.out.println(et);
 		
-		int delEet = 0;
+		int delEnt = 0;
 		// 이벤트 삭제
-		delEet = eventSvc.delInfo(et);
-		System.out.println(delEet);
+		delEnt = eventSvc.delInfo(et);
+		System.out.println(delEnt);
 		
-		if(delEet > 0) {
+		if(delEnt > 0) {
 			model.addAttribute("res", "SUCCESS");
 			return "redirect:event.list";
 		}else {

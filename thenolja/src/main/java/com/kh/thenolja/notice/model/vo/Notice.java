@@ -1,14 +1,9 @@
 package com.kh.thenolja.notice.model.vo;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+
+@Data
 public class Notice {
 	
 	private int noticeNo;               // 공지사항 번호
