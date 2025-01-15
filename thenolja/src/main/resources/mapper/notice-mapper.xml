@@ -15,6 +15,7 @@
 	<result column="WRITER"  			property="writer"/>
 	<result column="VIEW_COUNT"  		property="viewCount"/>
 	<result column="FILE_PATH"     		property="filePath"/>
+	<result column="FLAG"     			property="flag"/>
 	
 	
 </resultMap>
@@ -40,6 +41,10 @@
 	       STATUS,   		     						        /* 공지사항 상태(=노출여부) */
 	       NOTICE_VIEW_COUNT as VIEW_COUNT,			 		    /* 공지사항 조회수 */
 	       FILE_PATH       										/* 공지사항 첨부파일*/
+	       
+	       
+	       
+	       
     
     FROM 	TB_NOTICE
 	

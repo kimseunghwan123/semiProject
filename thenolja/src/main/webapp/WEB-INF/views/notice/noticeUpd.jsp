@@ -426,7 +426,7 @@ function upload(){
 					
 					<!-- 업로드 영역 START -->
 					<div class="upload-box">    
-						<input type="text" id="fileName_110" name="filePath" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="">
+						<input type="text" id="fileName_110" name="filePath" class="upload-name inp" placeholder="선택된 파일 없음" title="선택된 파일 없음" readonly="" value="${noticeOne.filePath}">
 						<button type="button" id="fileReset" class="btn-reset"><span class="blind">삭제</span></button>	
 					</div>
 					<!-- 업로드 영역 END -->

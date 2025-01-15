@@ -143,8 +143,6 @@ public class MemberController {
 		}
 	
 	
-	
-	
 	/*
 	 *	비밀번호 중복체크 
 	 * 

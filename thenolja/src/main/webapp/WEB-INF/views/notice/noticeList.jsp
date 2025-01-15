@@ -57,9 +57,21 @@
 	
 	
 <!-- 비회원 "N"-->	
-	
-	
-	
+
+<%-- 	<c:if test="${ loginMember != null loginMember.getMemStatus().equals("A")}"> 
+		<script>
+		$("#btn_reg").show();
+		</script>
+			<script>
+			$("#btn_reg").hide();
+		</script>
+		<c:if test="${ loginMember !=  loginMember.getMemStatus().equals("A")}"></c:if>
+		<script>
+    		$("#btn_reg").style.display='none';
+    	</script>
+	</c:if> --%>
+
+
 	
 <!-- 관리자"Y" -->
 	<table id="noticelist"	class="table table-hover">
@@ -135,10 +147,10 @@
       })
 		
        	// 상세화면 진입 (회원전용URL)
-      /*    $('tbody > tr.list').click(function(){
+          $('tbody > tr.list').click(function(){
            const noticeNo = $(this).children().eq(0).text();
            location.href= 'selectUpdate.notice?noticeNo=' + noticeNo + '&flag=' + 'N';
-        });  */
+        });  
 	
 	</script>	 
 	 

@@ -1,5 +1,0 @@
-package com.kh.thenolja.coupon.model.service;
-
-public class CouponServiceImpl implements CouponService {
-
-}
