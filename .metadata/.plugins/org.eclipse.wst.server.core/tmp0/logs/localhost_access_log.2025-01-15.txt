@@ -8,3 +8,14 @@
 0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:48:45 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=Y HTTP/1.1" 200 8206
 0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:48:47 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=N HTTP/1.1" 200 8416
 127.0.0.1 - - [15/Jan/2025:17:49:43 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:50:20 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=N HTTP/1.1" 200 8416
+127.0.0.1 - - [15/Jan/2025:17:50:48 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:50:50 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=N HTTP/1.1" 200 8416
+127.0.0.1 - - [15/Jan/2025:17:51:13 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:17 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=N HTTP/1.1" 200 8416
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:23 +0900] "GET /thenolja/ HTTP/1.1" 200 7726
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:26 +0900] "GET /thenolja/notice.list HTTP/1.1" 200 22224
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:27 +0900] "GET /thenolja/selectUpdate.notice?noticeNo=183&flag=Y HTTP/1.1" 200 17820
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:36 +0900] "POST /thenolja/notice.updInfo HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:36 +0900] "GET /thenolja/notice.list?res=SUCCESS HTTP/1.1" 200 22224
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:17:51:37 +0900] "GET /thenolja/notice.list HTTP/1.1" 200 22224
