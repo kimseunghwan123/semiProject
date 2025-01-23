@@ -208,7 +208,8 @@ function updNotice(eventStatus){
 		// 수정, 삭제인 경우 각각 데이터 세팅
 		if(eventStatus == "UPD"){
 			mappingUrl  = "notice.updInfo";
-			dataObj 	= {noticeTitle : inptTitle, noticeContent : inptContent, status : chkStatus, noticeNo : noticeNo, filePath : filePathImg}
+			dataObj 	= {noticeTitle : inptTitle, noticeContent : inptContent, 
+						   status : chkStatus, noticeNo : noticeNo, filePath : filePathImg}
 			rsltMsg     = "게시글이 정상적으로 수정되었습니다.";
 		}
 		if(eventStatus == "DEL"){
